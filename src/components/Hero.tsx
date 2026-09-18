@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FC } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
+import { CinematicMotionBackground } from './CinematicMotionBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +19,7 @@ const TYPEWRITER_WORD = 'STAGE.';
 
 export const Hero: FC<HeroProps> = ({ onOpenRegister }) => {
   const containerRef   = useRef<HTMLDivElement>(null);
-  const heroImageRef   = useRef<HTMLImageElement>(null);
+  const heroImageRef   = useRef<HTMLDivElement>(null);
   const wordRefs       = useRef<(HTMLSpanElement | null)[]>([]);
   const prefixRefs     = useRef<(HTMLSpanElement | null)[]>([]);
   const stageRef       = useRef<HTMLSpanElement>(null);
@@ -200,20 +201,9 @@ export const Hero: FC<HeroProps> = ({ onOpenRegister }) => {
       ref={containerRef}
       className="relative w-full h-screen bg-[#F4F0E8] overflow-hidden flex flex-col justify-between"
     >
-      {/* BACKGROUND IMAGE */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <img
-          ref={heroImageRef}
-          src="/assets/images/hero_bg.jpg"
-          alt="Rithmos live concert stage"
-          className="w-full h-full object-cover object-center opacity-0 filter brightness-[1.02] contrast-[1.03]"
-          onError={(e) => {
-            // Gracefully hide the image if it fails to load
-            (e.currentTarget as HTMLImageElement).style.display = 'none';
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F4F0E8]/90 via-[#F4F0E8]/60 to-transparent w-full md:w-3/4 pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F4F0E8] to-transparent pointer-events-none" />
+      {/* CINEMATIC MOTION VIDEO BACKGROUND WITH PARALLAX & RETICLES */}
+      <div ref={heroImageRef} className="absolute inset-0 z-0 overflow-hidden">
+        <CinematicMotionBackground />
       </div>
 
       {/* TOP EDITORIAL TAGLINE (logo is in the fixed nav header) */}

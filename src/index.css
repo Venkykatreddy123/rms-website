@@ -180,3 +180,71 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+/* ── Cinematic Motion Background Keyframes ───────────────── */
+@keyframes lightLeakDriftA {
+  0% {
+    transform: translate(-15%, -10%) scale(1.05) rotate(0deg);
+    opacity: 0.35;
+  }
+  33% {
+    transform: translate(12%, 8%) scale(1.2) rotate(6deg);
+    opacity: 0.65;
+  }
+  66% {
+    transform: translate(-8%, 15%) scale(1.12) rotate(-4deg);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(-15%, -10%) scale(1.05) rotate(0deg);
+    opacity: 0.35;
+  }
+}
+
+@keyframes lightLeakDriftB {
+  0% {
+    transform: translate(15%, 15%) scale(1.1) rotate(0deg);
+    opacity: 0.25;
+  }
+  40% {
+    transform: translate(-12%, -10%) scale(1.25) rotate(-8deg);
+    opacity: 0.55;
+  }
+  75% {
+    transform: translate(6%, -18%) scale(1.15) rotate(5deg);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(15%, 15%) scale(1.1) rotate(0deg);
+    opacity: 0.25;
+  }
+}
+
+@keyframes reticlePulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes filmScanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.animate-light-leak-a {
+  animation: lightLeakDriftA 16s ease-in-out infinite;
+}
+
+.animate-light-leak-b {
+  animation: lightLeakDriftB 22s ease-in-out infinite;
+}
+
+.animate-reticle-pulse {
+  animation: reticlePulse 3s ease-in-out infinite;
+}
+
