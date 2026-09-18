@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #F4F0E8;
+    --bg-secondary: #EDE8DE;
+    --red-rithmos: #C91F25;
+    --red-deep: #8F171C;
+    --gold-accent: #C9A45C;
+    --text-primary: #171717;
+    --text-secondary: #65625D;
+    --border-editorial: #D8D3CA;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #F4F0E8;
+    color: #171717;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #F4F0E8;
+    color: #171717;
+    overflow-x: hidden;
+  }
+
+  /* Accessibility: all interactive elements get pointer cursor */
+  button,
+  [role="button"],
+  a,
+  select,
+  label[for] {
+    cursor: pointer;
+  }
+
+  /* Minimum 44px touch targets on interactive elements */
+  button,
+  [role="button"] {
+    min-height: 44px;
+  }
+
+  /* Focus visible ring for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #C91F25;
+    outline-offset: 2px;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border: none;
+    background-color: #F4F0E8;
+  }
+}
+
+/* Typography Utility Classes */
+.font-display {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.font-editorial {
+  font-family: 'Italiana', 'Playfair Display', Georgia, serif;
+}
+
+.font-serif-body {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans-clean {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F0E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8D3CA;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C91F25;
+}
+
+/* Custom Utilities */
+.editorial-container {
+  width: 100%;
+  max-width: 1560px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 6vw, 96px);
+  padding-right: clamp(20px, 6vw, 96px);
+}
+
+.noise-layer {
+  background-image: radial-gradient(rgba(23, 23, 23, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* ==========================================================================
+   ARENA SHOW MODE (Concert Night Atmospheric Inversion)
+   ========================================================================== */
+.arena-mode {
+  background-color: #0A0A0A !important;
+  color: #F4F0E8 !important;
+}
+
+.arena-mode header {
+  background-color: rgba(10, 10, 10, 0.96) !important;
+  border-bottom-color: #242424 !important;
+}
+
+.arena-mode .bg-\[\#F4F0E8\],
+.arena-mode section.bg-\[\#F4F0E8\],
+.arena-mode div.bg-\[\#F4F0E8\] {
+  background-color: #0A0A0A !important;
+}
+
+.arena-mode .bg-\[\#EDE8DE\],
+.arena-mode section.bg-\[\#EDE8DE\],
+.arena-mode div.bg-\[\#EDE8DE\] {
+  background-color: #121212 !important;
+}
+
+.arena-mode .bg-\[\#F4F0E8\]\/95,
+.arena-mode .bg-\[\#F4F0E8\]\/98,
+.arena-mode .bg-\[\#F4F0E8\]\/90 {
+  background-color: rgba(18, 18, 18, 0.95) !important;
+}
+
+.arena-mode .text-\[\#171717\] {
+  color: #F4F0E8 !important;
+}
+
+.arena-mode .text-\[\#65625D\] {
+  color: #A39E93 !important;
+}
+
+.arena-mode .border-\[\#D8D3CA\],
+.arena-mode .border-\[\#D8D3CA\]\/60,
+.arena-mode .border-\[\#D8D3CA\]\/50,
+.arena-mode .border-\[\#D8D3CA\]\/40 {
+  border-color: #262626 !important;
+}
+
+.arena-mode .bg-white\/60,
+.arena-mode .bg-white\/70,
+.arena-mode .bg-white\/80 {
+  background-color: rgba(28, 28, 28, 0.8) !important;
+}
+
+/* Neon Glow on Crimson Elements in Arena Mode */
+.arena-mode .text-\[\#C91F25\] {
+  text-shadow: 0 0 14px rgba(201, 31, 37, 0.65);
+}
+
+.arena-mode button.bg-\[\#C91F25\] {
+  box-shadow: 0 0 25px rgba(201, 31, 37, 0.45);
+}
+
+/* ── Hero Typewriter Cursor ──────────────────────────── */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
