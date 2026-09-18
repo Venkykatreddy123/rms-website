@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, type FC } from 'react';
-import { Film, Sparkles, Volume2, VolumeX, Eye, Layers } from 'lucide-react';
 
 export interface ChapterInfo {
   id: string;
@@ -45,13 +44,11 @@ const MASTER_REEL_SRC = '/assets/videos/rithmos_cinematic_bg.mp4';
 
 interface Props {
   className?: string;
-  showTelemetryOverlay?: boolean;
   isGlobal?: boolean;
 }
 
 export const CinematicMotionBackground: FC<Props> = ({
   className = '',
-  showTelemetryOverlay = true,
   isGlobal = false,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,24 +60,9 @@ export const CinematicMotionBackground: FC<Props> = ({
   const scrollOffset = useRef(0);
   const videoTransformRef = useRef<HTMLDivElement>(null);
 
-  // Playback & chapter state
-  const [selectedFeed, setSelectedFeed] = useState<'master' | 'guitar' | 'horn' | 'energy'>('master');
-  const [activeChapterIndex, setActiveChapterIndex] = useState(0);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(27.63);
-  const [isMuted, setIsMuted] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
-  // Aesthetic overlay controls
-  const [showFilmGrid, setShowFilmGrid] = useState(true);
-  const [showLightLeaks, setShowLightLeaks] = useState(true);
-  const [showHUD, setShowHUD] = useState(true);
-
-  // Determine which video source to load
-  const activeVideoSrc =
-    selectedFeed === 'master'
-      ? MASTER_REEL_SRC
-      : CHAPTERS.find((c) => c.id === selectedFeed)?.clipSrc || MASTER_REEL_SRC;
+  const showFilmGrid = true;
+  const showLightLeaks = true;
 
   /* ── 1. Parallax Motion Engine (Mouse Lerp + Scroll Offset) ── */
   useEffect(() => {
@@ -133,48 +115,7 @@ export const CinematicMotionBackground: FC<Props> = ({
       window.removeEventListener('scroll', handleScroll);
       cancelAnimationFrame(animId);
     };
-  }, []);
-
-  /* ── 2. Timecode & Chapter Auto-Tracking ── */
-  const handleTimeUpdate = () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const t = video.currentTime;
-    setCurrentTime(t);
-    if (video.duration && !isNaN(video.duration)) {
-      setDuration(video.duration);
-    }
-
-    if (selectedFeed === 'master') {
-      // Check which chapter time range we are currently in
-      const idx = CHAPTERS.findIndex(
-        (c) => t >= c.timeRange[0] && t < c.timeRange[1]
-      );
-      if (idx !== -1 && idx !== activeChapterIndex) {
-        setActiveChapterIndex(idx);
-      }
-    }
-  };
-
-  // Format SMPTE Timecode: 00:00:SS:FF
-  const formatTimecode = (sec: number) => {
-    const totalFrames = Math.floor(sec * 24);
-    const frames = (totalFrames % 24).toString().padStart(2, '0');
-    const s = Math.floor(sec % 60).toString().padStart(2, '0');
-    const m = Math.floor((sec / 60) % 60).toString().padStart(2, '0');
-    return `00:${m}:${s}:${frames}`;
-  };
-
-  const handleSelectChapter = (id: 'master' | 'guitar' | 'horn' | 'energy') => {
-    setSelectedFeed(id);
-    if (id !== 'master') {
-      const idx = CHAPTERS.findIndex((c) => c.id === id);
-      if (idx !== -1) setActiveChapterIndex(idx);
-    }
-  };
-
-  const currentChapter = CHAPTERS[activeChapterIndex] || CHAPTERS[0];
+  }, [isGlobal]);
 
   return (
     <div
@@ -196,14 +137,12 @@ export const CinematicMotionBackground: FC<Props> = ({
       >
         <video
           ref={videoRef}
-          key={activeVideoSrc}
-          src={activeVideoSrc}
+          src={MASTER_REEL_SRC}
           autoPlay
-          muted={isMuted}
+          muted
           loop
           playsInline
           onLoadedData={() => setIsVideoLoaded(true)}
-          onTimeUpdate={handleTimeUpdate}
           className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.08] saturate-[1.12]"
         />
       </div>
@@ -312,160 +251,6 @@ export const CinematicMotionBackground: FC<Props> = ({
             </div>
           </div>
         </div>
-      )}
-
-      {/* ── LAYER 4: INTERACTIVE TELEMETRY HUD & CHAPTER SWITCHER ── */}
-      {showTelemetryOverlay && showHUD && (
-        <div className={`${isGlobal ? 'fixed' : 'absolute'} top-24 sm:top-28 right-4 sm:right-8 md:right-12 z-40 pointer-events-auto flex flex-col items-end gap-3 max-w-[320px] sm:max-w-[380px]`}>
-          {/* Main Cinematic Telemetry Card */}
-          <div className="w-full bg-[#171717]/85 backdrop-blur-md text-[#F4F0E8] border border-white/15 p-3.5 sm:p-4 rounded shadow-2xl space-y-3">
-            {/* Top Bar: Live Status & Timecode */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-2">
-              <div className="flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-[#C91F25] animate-ping" />
-                <span className="inline-block w-2 h-2 rounded-full bg-[#C91F25] -ml-4" />
-                <span className="text-[9px] font-mono uppercase tracking-[0.2em] font-semibold text-[#F4F0E8]">
-                  CINEMATIC MOTION REEL
-                </span>
-              </div>
-              <div className="text-[10px] font-mono tracking-widest text-[#C9A45C]">
-                {formatTimecode(currentTime)}
-              </div>
-            </div>
-
-            {/* Current Active Instrument Readout */}
-            <div>
-              <div className="flex items-center justify-between text-[9px] font-mono uppercase tracking-widest text-[#65625D]">
-                <span>CHAPTER {currentChapter.number} // 03</span>
-                <span className="text-[#C91F25] font-semibold">{currentChapter.type}</span>
-              </div>
-              <h4 className="text-sm sm:text-base font-display font-bold tracking-tight text-white mt-0.5">
-                {currentChapter.name}
-              </h4>
-              <p className="text-[10px] sm:text-[11px] font-sans-clean text-[#D8D3CA] leading-snug mt-1 line-clamp-2">
-                {currentChapter.description}
-              </p>
-            </div>
-
-            {/* Playback Scrub/Progress Bar */}
-            <div className="space-y-1">
-              <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden flex">
-                <div
-                  className="h-full bg-gradient-to-r from-[#C91F25] to-[#C9A45C] transition-all duration-200"
-                  style={{ width: `${(currentTime / (duration || 27.63)) * 100}%` }}
-                />
-              </div>
-              <div className="flex justify-between text-[8px] font-mono text-white/40">
-                <span>00:00</span>
-                <span>{selectedFeed === 'master' ? 'SEAMLESS LOOP (28S)' : 'INSTRUMENT FEED'}</span>
-                <span>{formatTimecode(duration || 27.63)}</span>
-              </div>
-            </div>
-
-            {/* Chapter Selectors / Feeds */}
-            <div className="pt-1">
-              <div className="text-[8px] font-mono uppercase tracking-widest text-white/50 mb-1.5">
-                SELECT CLOUD REEL / INSTRUMENT:
-              </div>
-              <div className="grid grid-cols-2 gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => handleSelectChapter('master')}
-                  className={`px-2 py-1.5 text-[9px] font-mono uppercase tracking-wider rounded text-left transition-all cursor-pointer flex items-center justify-between ${
-                    selectedFeed === 'master'
-                      ? 'bg-[#C91F25] text-white font-bold shadow-sm'
-                      : 'bg-white/5 hover:bg-white/15 text-white/70'
-                  }`}
-                >
-                  <span>MASTER REEL</span>
-                  <span className="text-[8px] opacity-75">ALL</span>
-                </button>
-
-                {CHAPTERS.map((ch) => (
-                  <button
-                    key={ch.id}
-                    type="button"
-                    onClick={() => handleSelectChapter(ch.id as any)}
-                    className={`px-2 py-1.5 text-[9px] font-mono uppercase tracking-wider rounded text-left transition-all cursor-pointer flex items-center justify-between ${
-                      selectedFeed === ch.id ||
-                      (selectedFeed === 'master' && currentChapter.id === ch.id)
-                        ? 'bg-[#C91F25]/30 border border-[#C91F25] text-white font-semibold'
-                        : 'bg-white/5 hover:bg-white/15 text-white/70'
-                    }`}
-                  >
-                    <span className="truncate">{ch.name.split(' ')[0]}</span>
-                    <span className="text-[8px] opacity-75">{ch.number}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Controls Toolbar: Grid, Leaks, Sound */}
-            <div className="flex items-center justify-between pt-2 border-t border-white/10 text-[9px] font-mono">
-              <div className="flex items-center gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => setShowFilmGrid((p) => !p)}
-                  className={`px-2 py-1 rounded flex items-center gap-1 transition-colors cursor-pointer ${
-                    showFilmGrid
-                      ? 'bg-white/15 text-white'
-                      : 'bg-transparent text-white/40 hover:text-white/70'
-                  }`}
-                  title="Toggle 35mm Film Grid"
-                >
-                  <Film className="w-3 h-3" />
-                  <span>GRID</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setShowLightLeaks((p) => !p)}
-                  className={`px-2 py-1 rounded flex items-center gap-1 transition-colors cursor-pointer ${
-                    showLightLeaks
-                      ? 'bg-white/15 text-[#C9A45C]'
-                      : 'bg-transparent text-white/40 hover:text-white/70'
-                  }`}
-                  title="Toggle Cinematic Light Leaks"
-                >
-                  <Sparkles className="w-3 h-3" />
-                  <span>LEAKS</span>
-                </button>
-              </div>
-
-              <div className="flex items-center gap-1.5">
-                <button
-                  type="button"
-                  onClick={() => setIsMuted((p) => !p)}
-                  className="p-1 rounded bg-white/5 hover:bg-white/15 text-white/70 transition-colors cursor-pointer"
-                  title={isMuted ? 'Unmute' : 'Mute'}
-                >
-                  {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-[#C91F25]" />}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setShowHUD(false)}
-                  className="p-1 rounded bg-white/5 hover:bg-white/15 text-white/40 hover:text-white/80 transition-colors cursor-pointer"
-                  title="Minimize HUD"
-                >
-                  <Eye className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Re-open HUD trigger if closed */}
-      {showTelemetryOverlay && !showHUD && (
-        <button
-          type="button"
-          onClick={() => setShowHUD(true)}
-          className={`${isGlobal ? 'fixed' : 'absolute'} top-24 sm:top-28 right-4 z-40 pointer-events-auto bg-[#171717]/80 hover:bg-[#C91F25] text-white p-2 rounded border border-white/20 transition-all cursor-pointer flex items-center gap-1.5 text-[9px] font-mono shadow-lg`}
-        >
-          <Layers className="w-3.5 h-3.5" />
-          <span>REEL HUD</span>
-        </button>
       )}
     </div>
   );
