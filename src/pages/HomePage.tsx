@@ -1,20 +1,16 @@
-import { lazy, Suspense } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { CinematicMotionBackground } from '../components/CinematicMotionBackground';
-
-const Story           = lazy(() => import('../components/Story').then(m => ({ default: m.Story })));
-const StageExperience = lazy(() => import('../components/StageExperience').then(m => ({ default: m.StageExperience })));
-const Bands           = lazy(() => import('../components/Bands').then(m => ({ default: m.Bands })));
-const Competition     = lazy(() => import('../components/Competition').then(m => ({ default: m.Competition })));
-const Experience      = lazy(() => import('../components/Experience').then(m => ({ default: m.Experience })));
-const Watch           = lazy(() => import('../components/Watch').then(m => ({ default: m.Watch })));
-const Hyderabad       = lazy(() => import('../components/Hyderabad').then(m => ({ default: m.Hyderabad })));
-const Partners        = lazy(() => import('../components/Partners').then(m => ({ default: m.Partners })));
-const FinalCTA        = lazy(() => import('../components/FinalCTA').then(m => ({ default: m.FinalCTA })));
-const Footer          = lazy(() => import('../components/Footer').then(m => ({ default: m.Footer })));
-
-const Fallback = () => <div className="w-full h-32 bg-[#EDE8DE] animate-pulse" aria-hidden="true" />;
+import { Story } from '../components/Story';
+import { StageExperience } from '../components/StageExperience';
+import { Bands } from '../components/Bands';
+import { Competition } from '../components/Competition';
+import { Experience } from '../components/Experience';
+import { Watch } from '../components/Watch';
+import { Hyderabad } from '../components/Hyderabad';
+import { Partners } from '../components/Partners';
+import { FinalCTA } from '../components/FinalCTA';
+import { Footer } from '../components/Footer';
 
 interface OutletCtx { onOpenRegister: () => void }
 
@@ -31,55 +27,36 @@ export default function HomePage() {
         <Hero onOpenRegister={onOpenRegister} />
 
         {/* 2. Story — Why Rithmos */}
-        <Suspense fallback={<Fallback />}>
-          <Story />
-        </Suspense>
+        <Story />
 
         {/* 3. Stage Experience — Interactive Instrument Rig */}
-        <Suspense fallback={<Fallback />}>
-          <StageExperience />
-        </Suspense>
+        <StageExperience />
 
         {/* 4. Bands — Horizontal Editorial Gallery */}
-        <Suspense fallback={<Fallback />}>
-          <Bands />
-        </Suspense>
+        <Bands />
 
         {/* 5. Competition — 6-Stage Color Progression */}
-        <Suspense fallback={<Fallback />}>
-          <Competition />
-        </Suspense>
+        <Competition />
 
         {/* 6. Experience — The 5-Word Scroll */}
-        <Suspense fallback={<Fallback />}>
-          <Experience />
-        </Suspense>
+        <Experience />
 
         {/* 7. Watch — Performance Archive */}
-        <Suspense fallback={<Fallback />}>
-          <Watch />
-        </Suspense>
+        <Watch />
 
         {/* 8. Hyderabad — Origin Story */}
-        <Suspense fallback={<Fallback />}>
-          <Hyderabad />
-        </Suspense>
+        <Hyderabad />
 
         {/* 9. Partners */}
-        <Suspense fallback={<Fallback />}>
-          <Partners />
-        </Suspense>
+        <Partners />
 
         {/* 10. Final CTA */}
-        <Suspense fallback={<Fallback />}>
-          <FinalCTA onOpenRegister={onOpenRegister} />
-        </Suspense>
+        <FinalCTA onOpenRegister={onOpenRegister} />
 
         {/* Footer */}
-        <Suspense fallback={null}>
-          <Footer />
-        </Suspense>
+        <Footer />
       </main>
     </div>
   );
 }
+

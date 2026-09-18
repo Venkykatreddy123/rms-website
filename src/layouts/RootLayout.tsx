@@ -20,11 +20,11 @@ export function RootLayout() {
     ? 'hero'
     : location.pathname.replace('/', '');
 
-  // Reset scroll + kill old ScrollTriggers on every route change
+  // Reset scroll on every route change
   useEffect(() => {
     window.scrollTo(0, 0);
     setScrollProgress(0);
-    ScrollTrigger.getAll().forEach((t) => t.kill());
+    ScrollTrigger.refresh();
   }, [location.pathname]);
 
   // Lenis smooth scroll — re-init on every route change
