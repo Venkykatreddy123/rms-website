@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, type FC } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
-import { CinematicMotionBackground } from './CinematicMotionBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -199,11 +198,12 @@ export const Hero: FC<HeroProps> = ({ onOpenRegister }) => {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen bg-[#F4F0E8] overflow-hidden flex flex-col justify-between"
+      className="relative w-full h-screen bg-transparent overflow-hidden flex flex-col justify-between hero-section"
     >
-      {/* CINEMATIC MOTION VIDEO BACKGROUND WITH PARALLAX & RETICLES */}
-      <div ref={heroImageRef} className="absolute inset-0 z-0 overflow-hidden">
-        <CinematicMotionBackground />
+      {/* HERO EDITORIAL GRADIENT SCRIMS FOR MAXIMUM TYPOGRAPHY READABILITY */}
+      <div ref={heroImageRef} className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F4F0E8]/90 via-[#F4F0E8]/50 to-transparent w-full md:w-3/4 pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F4F0E8]/80 to-transparent pointer-events-none" />
       </div>
 
       {/* TOP EDITORIAL TAGLINE (logo is in the fixed nav header) */}

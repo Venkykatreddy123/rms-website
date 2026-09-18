@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { Hero } from '../components/Hero';
+import { CinematicMotionBackground } from '../components/CinematicMotionBackground';
 
 const Story           = lazy(() => import('../components/Story').then(m => ({ default: m.Story })));
 const StageExperience = lazy(() => import('../components/StageExperience').then(m => ({ default: m.StageExperience })));
@@ -21,59 +22,64 @@ export default function HomePage() {
   const { onOpenRegister } = useOutletContext<OutletCtx>();
 
   return (
-    <main>
-      {/* 1. Hero */}
-      <Hero onOpenRegister={onOpenRegister} />
+    <div className="cinematic-home-page relative">
+      {/* GLOBAL CINEMATIC MOTION BACKGROUND ACROSS WHOLE HOME PAGE */}
+      <CinematicMotionBackground isGlobal={true} />
 
-      {/* 2. Story — Why Rithmos */}
-      <Suspense fallback={<Fallback />}>
-        <Story />
-      </Suspense>
+      <main className="relative z-10">
+        {/* 1. Hero */}
+        <Hero onOpenRegister={onOpenRegister} />
 
-      {/* 3. Stage Experience — Interactive Instrument Rig */}
-      <Suspense fallback={<Fallback />}>
-        <StageExperience />
-      </Suspense>
+        {/* 2. Story — Why Rithmos */}
+        <Suspense fallback={<Fallback />}>
+          <Story />
+        </Suspense>
 
-      {/* 4. Bands — Horizontal Editorial Gallery */}
-      <Suspense fallback={<Fallback />}>
-        <Bands />
-      </Suspense>
+        {/* 3. Stage Experience — Interactive Instrument Rig */}
+        <Suspense fallback={<Fallback />}>
+          <StageExperience />
+        </Suspense>
 
-      {/* 5. Competition — 6-Stage Color Progression */}
-      <Suspense fallback={<Fallback />}>
-        <Competition />
-      </Suspense>
+        {/* 4. Bands — Horizontal Editorial Gallery */}
+        <Suspense fallback={<Fallback />}>
+          <Bands />
+        </Suspense>
 
-      {/* 6. Experience — The 5-Word Scroll */}
-      <Suspense fallback={<Fallback />}>
-        <Experience />
-      </Suspense>
+        {/* 5. Competition — 6-Stage Color Progression */}
+        <Suspense fallback={<Fallback />}>
+          <Competition />
+        </Suspense>
 
-      {/* 7. Watch — Performance Archive */}
-      <Suspense fallback={<Fallback />}>
-        <Watch />
-      </Suspense>
+        {/* 6. Experience — The 5-Word Scroll */}
+        <Suspense fallback={<Fallback />}>
+          <Experience />
+        </Suspense>
 
-      {/* 8. Hyderabad — Origin Story */}
-      <Suspense fallback={<Fallback />}>
-        <Hyderabad />
-      </Suspense>
+        {/* 7. Watch — Performance Archive */}
+        <Suspense fallback={<Fallback />}>
+          <Watch />
+        </Suspense>
 
-      {/* 9. Partners */}
-      <Suspense fallback={<Fallback />}>
-        <Partners />
-      </Suspense>
+        {/* 8. Hyderabad — Origin Story */}
+        <Suspense fallback={<Fallback />}>
+          <Hyderabad />
+        </Suspense>
 
-      {/* 10. Final CTA */}
-      <Suspense fallback={<Fallback />}>
-        <FinalCTA onOpenRegister={onOpenRegister} />
-      </Suspense>
+        {/* 9. Partners */}
+        <Suspense fallback={<Fallback />}>
+          <Partners />
+        </Suspense>
 
-      {/* Footer */}
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
-    </main>
+        {/* 10. Final CTA */}
+        <Suspense fallback={<Fallback />}>
+          <FinalCTA onOpenRegister={onOpenRegister} />
+        </Suspense>
+
+        {/* Footer */}
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+      </main>
+    </div>
   );
 }

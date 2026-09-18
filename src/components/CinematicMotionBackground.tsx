@@ -46,11 +46,13 @@ const MASTER_REEL_SRC = '/assets/videos/rithmos_cinematic_bg.mp4';
 interface Props {
   className?: string;
   showTelemetryOverlay?: boolean;
+  isGlobal?: boolean;
 }
 
 export const CinematicMotionBackground: FC<Props> = ({
   className = '',
   showTelemetryOverlay = true,
+  isGlobal = false,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -106,12 +108,17 @@ export const CinematicMotionBackground: FC<Props> = ({
       mouseCurrent.current.y = lerp(mouseCurrent.current.y, mouseTarget.current.y, 0.04);
 
       if (videoTransformRef.current) {
-        // Subtle translation: up to ±22px horizontal, ±14px vertical
-        const moveX = mouseCurrent.current.x * -22;
-        const moveY = mouseCurrent.current.y * -14 + scrollOffset.current * -0.15;
+        // Subtle translation: up to ±20px horizontal
+        const moveX = mouseCurrent.current.x * -20;
+        // Bounded scroll translation for global or local
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        const scrollFraction = Math.min(1, Math.max(0, scrollOffset.current / maxScroll));
+        const scrollDrift = isGlobal ? (scrollFraction - 0.5) * -40 : scrollOffset.current * -0.15;
+        const moveY = mouseCurrent.current.y * -12 + scrollDrift;
+
         // Subtle tilt
-        const rotX = mouseCurrent.current.y * 1.2;
-        const rotY = mouseCurrent.current.x * -1.5;
+        const rotX = mouseCurrent.current.y * 1.0;
+        const rotY = mouseCurrent.current.x * -1.2;
 
         videoTransformRef.current.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.08)`;
       }
@@ -172,7 +179,9 @@ export const CinematicMotionBackground: FC<Props> = ({
   return (
     <div
       ref={containerRef}
-      className={`absolute inset-0 z-0 overflow-hidden pointer-events-none select-none ${className}`}
+      className={`${
+        isGlobal ? 'fixed' : 'absolute'
+      } inset-0 z-0 overflow-hidden pointer-events-none select-none ${className}`}
       style={{ perspective: '1200px' }}
       aria-hidden="true"
     >
@@ -209,8 +218,10 @@ export const CinematicMotionBackground: FC<Props> = ({
       {/* 2. Rithmos Editorial Cream Left Gradient for Typography Readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#F4F0E8]/95 via-[#F4F0E8]/70 to-[#F4F0E8]/15 w-full md:w-[75%] lg:w-[65%]" />
 
-      {/* 3. Bottom Fade into Content Section */}
-      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#F4F0E8] via-[#F4F0E8]/75 to-transparent" />
+      {/* 3. Bottom Fade into Content Section (only for local Hero mode) */}
+      {!isGlobal && (
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#F4F0E8] via-[#F4F0E8]/75 to-transparent" />
+      )}
 
       {/* 4. Top Header Shadow Scrim */}
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/40 via-black/15 to-transparent" />
@@ -305,7 +316,7 @@ export const CinematicMotionBackground: FC<Props> = ({
 
       {/* ── LAYER 4: INTERACTIVE TELEMETRY HUD & CHAPTER SWITCHER ── */}
       {showTelemetryOverlay && showHUD && (
-        <div className="absolute top-24 sm:top-28 right-4 sm:right-8 md:right-12 z-20 pointer-events-auto flex flex-col items-end gap-3 max-w-[320px] sm:max-w-[380px]">
+        <div className={`${isGlobal ? 'fixed' : 'absolute'} top-24 sm:top-28 right-4 sm:right-8 md:right-12 z-40 pointer-events-auto flex flex-col items-end gap-3 max-w-[320px] sm:max-w-[380px]`}>
           {/* Main Cinematic Telemetry Card */}
           <div className="w-full bg-[#171717]/85 backdrop-blur-md text-[#F4F0E8] border border-white/15 p-3.5 sm:p-4 rounded shadow-2xl space-y-3">
             {/* Top Bar: Live Status & Timecode */}
@@ -450,7 +461,7 @@ export const CinematicMotionBackground: FC<Props> = ({
         <button
           type="button"
           onClick={() => setShowHUD(true)}
-          className="absolute top-24 sm:top-28 right-4 z-20 pointer-events-auto bg-[#171717]/80 hover:bg-[#C91F25] text-white p-2 rounded border border-white/20 transition-all cursor-pointer flex items-center gap-1.5 text-[9px] font-mono shadow-lg"
+          className={`${isGlobal ? 'fixed' : 'absolute'} top-24 sm:top-28 right-4 z-40 pointer-events-auto bg-[#171717]/80 hover:bg-[#C91F25] text-white p-2 rounded border border-white/20 transition-all cursor-pointer flex items-center gap-1.5 text-[9px] font-mono shadow-lg`}
         >
           <Layers className="w-3.5 h-3.5" />
           <span>REEL HUD</span>
