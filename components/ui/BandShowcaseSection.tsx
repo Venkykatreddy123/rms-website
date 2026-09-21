@@ -176,7 +176,7 @@ export default function BandShowcaseSection() {
   return (
     <section
       style={{
-        padding: "8rem 2.5rem",
+        padding: "4rem 2.5rem",
         maxWidth: "1380px",
         margin: "0 auto",
         position: "relative",
@@ -203,13 +203,13 @@ export default function BandShowcaseSection() {
             className="display-section"
             style={{
               fontSize: "clamp(2.6rem, 5.5vw, 4.6rem)",
-              color: "#0F1115",
+              color: "#FFFFFF",
               lineHeight: 0.9,
             }}
           >
             Bands That <span style={{ color: "var(--red)" }}>Dare to Rise</span>
           </h2>
-          <p className="body-copy" style={{ maxWidth: "600px", marginTop: "1rem" }}>
+          <p className="body-copy" style={{ maxWidth: "600px", marginTop: "1rem", color: "#CBD5E1" }}>
             Inspect the real sonic pioneers competing in Season 01. Complete with studio member lineups, authentic stage gear specs, live telemetry, and interactive audio riff previews.
           </p>
         </div>
@@ -227,18 +227,18 @@ export default function BandShowcaseSection() {
                 }}
                 style={{
                   padding: "0.75rem 1.4rem",
-                  background: isSelected ? "var(--red)" : "#FFFFFF",
-                  border: `1px solid ${isSelected ? "var(--red)" : "rgba(0, 0, 0, 0.12)"}`,
-                  color: isSelected ? "#FFFFFF" : "#2D3139",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 800,
-                  fontSize: "1rem",
+                  background: isSelected ? "var(--red)" : "rgba(255, 255, 255, 0.06)",
+                  border: `1px solid ${isSelected ? "var(--red)" : "rgba(255, 255, 255, 0.12)"}`,
+                  color: isSelected ? "#FFFFFF" : "#CBD5E1",
+                  fontFamily: "var(--font-sub)",
+                  fontWeight: 700,
+                  fontSize: "1.05rem",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   borderRadius: "4px",
                   cursor: "pointer",
                   transition: "all 0.25s ease",
-                  boxShadow: isSelected ? "0 4px 15px rgba(230, 20, 56, 0.25)" : "0 1px 4px rgba(0,0,0,0.04)",
+                  boxShadow: isSelected ? "0 4px 15px rgba(230, 20, 56, 0.35)" : "none",
                 }}
               >
                 {band.name}
@@ -255,9 +255,9 @@ export default function BandShowcaseSection() {
           display: "grid",
           gridTemplateColumns: "1.1fr 1.3fr",
           minHeight: "640px",
-          background: "#FFFFFF",
-          border: "1px solid rgba(230, 20, 56, 0.3)",
-          boxShadow: "0 20px 50px -10px rgba(0, 0, 0, 0.08)",
+          background: "#12141C",
+          border: "1px solid rgba(230, 20, 56, 0.35)",
+          boxShadow: "0 20px 50px -10px rgba(0, 0, 0, 0.6)",
         }}
       >
         {/* Left: High-Impact Band Photography */}
@@ -267,7 +267,7 @@ export default function BandShowcaseSection() {
             position: "relative",
             minHeight: "460px",
             overflow: "hidden",
-            borderRight: "1px solid rgba(0, 0, 0, 0.08)",
+            borderRight: "1px solid rgba(255, 255, 255, 0.12)",
           }}
         >
           <Image
@@ -278,7 +278,7 @@ export default function BandShowcaseSection() {
             style={{
               objectFit: "cover",
               objectPosition: "center",
-              filter: "contrast(1.1) brightness(0.95)",
+              filter: "contrast(1.1) brightness(0.88)",
             }}
           />
           <div
@@ -286,7 +286,7 @@ export default function BandShowcaseSection() {
               position: "absolute",
               inset: 0,
               background:
-                "linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.15) 40%, rgba(255,255,255,0.5) 100%)",
+                "linear-gradient(to top, rgba(7,8,10,0.95) 0%, rgba(7,8,10,0.15) 40%, rgba(7,8,10,0.5) 100%)",
             }}
           />
 
@@ -321,9 +321,9 @@ export default function BandShowcaseSection() {
                 border: "1px solid rgba(255, 255, 255, 0.3)",
                 borderRadius: "30px",
                 color: "#FFFFFF",
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                fontSize: "0.95rem",
+                fontFamily: "var(--font-sub)",
+                fontWeight: 700,
+                fontSize: "1rem",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 cursor: "pointer",
@@ -352,35 +352,35 @@ export default function BandShowcaseSection() {
                 display: "grid",
                 gridTemplateColumns: "repeat(4, 1fr)",
                 gap: "0.5rem",
-                background: "#FFFFFF",
-                border: "1px solid rgba(0, 0, 0, 0.1)",
+                background: "#161922",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
                 borderRadius: "6px",
                 padding: "1rem 0.5rem",
                 textAlign: "center",
-                boxShadow: "0 4px 15px rgba(0,0,0,0.06)",
+                boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
               }}
             >
               <div>
                 <p className="mono-telemetry" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>LIVE GIGS</p>
-                <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.15rem", color: "#0F1115", margin: 0 }}>
+                <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.35rem", letterSpacing: "0.02em", color: "#FFFFFF", margin: 0 }}>
                   {selectedBand.stats.liveShows}
                 </p>
               </div>
               <div>
                 <p className="mono-telemetry" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>DECIBEL</p>
-                <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.15rem", color: "var(--red)", margin: 0 }}>
+                <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.35rem", letterSpacing: "0.02em", color: "var(--red)", margin: 0 }}>
                   {selectedBand.stats.avgDecibels}
                 </p>
               </div>
               <div>
                 <p className="mono-telemetry" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>TRACKS</p>
-                <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.15rem", color: "#0F1115", margin: 0 }}>
+                <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.35rem", letterSpacing: "0.02em", color: "#FFFFFF", margin: 0 }}>
                   {selectedBand.stats.originalTracks}
                 </p>
               </div>
               <div>
                 <p className="mono-telemetry" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>FAN VOTES</p>
-                <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.15rem", color: "var(--gold)", margin: 0 }}>
+                <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.35rem", letterSpacing: "0.02em", color: "var(--gold)", margin: 0 }}>
                   {selectedBand.stats.fanVotes}
                 </p>
               </div>
@@ -396,7 +396,7 @@ export default function BandShowcaseSection() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            background: "#FFFFFF",
+            background: "#12141C",
           }}
         >
           <div>
@@ -411,7 +411,7 @@ export default function BandShowcaseSection() {
               className="display-section"
               style={{
                 fontSize: "clamp(2.2rem, 4vw, 3.4rem)",
-                color: "#0F1115",
+                color: "#FFFFFF",
                 marginBottom: "0.75rem",
               }}
             >
@@ -422,13 +422,13 @@ export default function BandShowcaseSection() {
             <p
               style={{
                 fontStyle: "italic",
-                color: "#2D3139",
+                color: "#FFFFFF",
                 fontSize: "1rem",
                 lineHeight: 1.6,
                 borderLeft: "3px solid var(--red)",
                 paddingLeft: "1.1rem",
                 marginBottom: "1.5rem",
-                background: "rgba(230, 20, 56, 0.05)",
+                background: "rgba(230, 20, 56, 0.12)",
                 padding: "0.75rem 1rem",
                 borderRadius: "0 4px 4px 0",
               }}
@@ -441,7 +441,7 @@ export default function BandShowcaseSection() {
               style={{
                 display: "flex",
                 gap: "0.5rem",
-                borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
+                borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
                 paddingBottom: "0.75rem",
                 marginBottom: "1.25rem",
               }}
@@ -452,9 +452,9 @@ export default function BandShowcaseSection() {
                   onClick={() => setActiveTab(tab)}
                   style={{
                     padding: "0.45rem 1rem",
-                    background: activeTab === tab ? "rgba(230,20,56,0.12)" : "#F8F9FA",
-                    border: `1px solid ${activeTab === tab ? "var(--red)" : "rgba(0,0,0,0.08)"}`,
-                    color: activeTab === tab ? "var(--red)" : "var(--muted)",
+                    background: activeTab === tab ? "rgba(230,20,56,0.18)" : "rgba(255, 255, 255, 0.06)",
+                    border: `1px solid ${activeTab === tab ? "var(--red)" : "rgba(255, 255, 255, 0.12)"}`,
+                    color: activeTab === tab ? "#FF2E55" : "var(--muted)",
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.75rem",
                     fontWeight: 700,
@@ -473,7 +473,7 @@ export default function BandShowcaseSection() {
             {/* Tab Content 1: Overview */}
             {activeTab === "overview" && (
               <div>
-                <p className="body-copy" style={{ fontSize: "0.95rem", marginBottom: "1.25rem", color: "#2D3139" }}>
+                <p className="body-copy" style={{ fontSize: "0.95rem", marginBottom: "1.25rem", color: "#CBD5E1" }}>
                   {selectedBand.bio}
                 </p>
 
@@ -487,12 +487,12 @@ export default function BandShowcaseSection() {
                         key={i}
                         style={{
                           padding: "0.4rem 0.85rem",
-                          background: "#F8F9FA",
-                          border: "1px solid rgba(0, 0, 0, 0.08)",
+                          background: "rgba(255, 255, 255, 0.06)",
+                          border: "1px solid rgba(255, 255, 255, 0.12)",
                           borderRadius: "4px",
                           fontFamily: "var(--font-mono)",
                           fontSize: "0.76rem",
-                          color: "#0F1115",
+                          color: "#FFFFFF",
                         }}
                       >
                         🎵 {track}
@@ -506,7 +506,7 @@ export default function BandShowcaseSection() {
                     ACCOLADES & RECOGNITION
                   </p>
                   {selectedBand.awards.map((award, i) => (
-                    <p key={i} style={{ fontSize: "0.86rem", color: "#0F1115", margin: "0.25rem 0", display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                    <p key={i} style={{ fontSize: "0.86rem", color: "#FFFFFF", margin: "0.25rem 0", display: "flex", alignItems: "center", gap: "0.4rem" }}>
                       <span style={{ color: "var(--gold)" }}>★</span> {award}
                     </p>
                   ))}
@@ -525,13 +525,13 @@ export default function BandShowcaseSection() {
                       justifyContent: "space-between",
                       alignItems: "center",
                       padding: "0.85rem 1.1rem",
-                      background: "#F8F9FA",
-                      border: "1px solid rgba(0, 0, 0, 0.08)",
+                      background: "rgba(255, 255, 255, 0.04)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
                       borderRadius: "6px",
                     }}
                   >
                     <div>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.1rem", color: "#0F1115", margin: 0 }}>
+                      <p style={{ fontFamily: "var(--font-sub)", fontWeight: 700, fontSize: "1.15rem", color: "#FFFFFF", margin: 0, textTransform: "uppercase", letterSpacing: "0.02em" }}>
                         {member.name}
                       </p>
                       <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.74rem", color: "var(--red)", margin: "0.15rem 0 0" }}>
@@ -542,7 +542,7 @@ export default function BandShowcaseSection() {
                       style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.7rem",
-                        color: "var(--muted)",
+                        color: "#CBD5E1",
                         maxWidth: "220px",
                         textAlign: "right",
                       }}
@@ -560,8 +560,8 @@ export default function BandShowcaseSection() {
                 <div
                   style={{
                     padding: "1.1rem",
-                    background: "rgba(230, 20, 56, 0.06)",
-                    border: "1px solid rgba(230, 20, 56, 0.25)",
+                    background: "rgba(230, 20, 56, 0.12)",
+                    border: "1px solid rgba(230, 20, 56, 0.3)",
                     borderRadius: "4px",
                     marginBottom: "1rem",
                   }}
@@ -569,7 +569,7 @@ export default function BandShowcaseSection() {
                   <p className="mono-telemetry" style={{ fontSize: "0.7rem", color: "var(--red)", marginBottom: "0.35rem" }}>
                     STAGE ENERGY PROFILE & LIVE PACING
                   </p>
-                  <p style={{ fontSize: "0.92rem", color: "#0F1115", margin: 0, lineHeight: 1.6 }}>
+                  <p style={{ fontSize: "0.92rem", color: "#FFFFFF", margin: 0, lineHeight: 1.6 }}>
                     {selectedBand.stageStyle}
                   </p>
                 </div>
@@ -577,15 +577,15 @@ export default function BandShowcaseSection() {
                 <div
                   style={{
                     padding: "1.1rem",
-                    background: "#F8F9FA",
-                    border: "1px solid rgba(0, 0, 0, 0.08)",
+                    background: "rgba(255, 255, 255, 0.04)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
                     borderRadius: "4px",
                   }}
                 >
                   <p className="mono-telemetry" style={{ fontSize: "0.7rem", color: "var(--gold)", marginBottom: "0.4rem" }}>
                     RECOMMENDED FOH MIX REQUIREMENTS
                   </p>
-                  <p style={{ fontSize: "0.85rem", color: "#0F1115", lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: "0.85rem", color: "#CBD5E1", lineHeight: 1.6, margin: 0 }}>
                     Heavy low-end punch (+3dB @ 60Hz), bright stereo guitar spread with sidechain ducking under lead vocal, ambient hall reverb on drum overheads.
                   </p>
                 </div>
@@ -610,8 +610,8 @@ export default function BandShowcaseSection() {
               STAGE 02 HEADLINER CONTENDER
             </span>
             <div style={{ display: "flex", gap: "0.75rem" }}>
-              <Link href="/watch" className="btn-outline" style={{ padding: "0.65rem 1.3rem", fontSize: "0.9rem" }}>
-                Watch Auditions
+              <Link href="/about" className="btn-outline" style={{ padding: "0.65rem 1.3rem", fontSize: "0.9rem" }}>
+                Festival Ethos
               </Link>
               <Link href="/contact" className="btn-primary" style={{ padding: "0.65rem 1.5rem", fontSize: "0.9rem" }}>
                 Vote for Band →
@@ -624,7 +624,7 @@ export default function BandShowcaseSection() {
       <style>{`
         @media (max-width: 960px) {
           #band-stories-section {
-            padding: 4rem 1.25rem !important;
+            padding: 2.5rem 1.25rem !important;
           }
           .band-dossier-grid {
             grid-template-columns: 1fr !important;

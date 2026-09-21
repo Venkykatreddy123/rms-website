@@ -47,16 +47,16 @@ export default function ContactPage() {
 
   const inputStyle = {
     width: "100%",
-    background: "#FFFFFF",
-    border: "1px solid rgba(0, 0, 0, 0.15)",
+    background: "#12141C",
+    border: "1px solid rgba(255, 255, 255, 0.15)",
     padding: "1rem 1.25rem",
-    color: "#0F1115",
+    color: "#FFFFFF",
     fontFamily: "var(--font-body)",
     fontSize: "0.95rem",
     outline: "none",
     transition: "border-color 0.3s ease, box-shadow 0.3s ease",
     borderRadius: "6px",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
   };
 
   return (
@@ -76,7 +76,7 @@ export default function ContactPage() {
             src="/images/guitar.jpg"
             alt=""
             fill
-            style={{ objectFit: "cover", opacity: 0.1, filter: "saturate(0.3)" }}
+            style={{ objectFit: "cover", opacity: 0.22, filter: "saturate(0.6) brightness(0.9)" }}
           />
           <div
             style={{
@@ -121,10 +121,10 @@ export default function ContactPage() {
           <h1
             className="display-hero"
             style={{
-              fontSize: "clamp(3rem, 9vw, 7rem)",
+              fontSize: "clamp(2.2rem, 5.2vw, 4.2rem)",
               color: "var(--bone)",
-              animation: "slide-up 1s ease 0.3s forwards",
-              opacity: 0,
+              lineHeight: 0.96,
+              marginBottom: "1.25rem",
             }}
           >
             Your Stage<br />
@@ -133,10 +133,9 @@ export default function ContactPage() {
           <p
             className="body-copy"
             style={{
-              marginTop: "2rem",
+              marginTop: "1.25rem",
               fontSize: "1.05rem",
-              animation: "slide-up 1s ease 0.6s forwards",
-              opacity: 0,
+              color: "#CBD5E1",
             }}
           >
             Register your band, enquire about partnership, or just say hello.
@@ -200,9 +199,9 @@ export default function ContactPage() {
                   onClick={() => setFormType(opt.key as typeof formType)}
                   style={{
                     padding: "0.75rem 1.5rem",
-                    background: formType === opt.key ? "var(--red)" : "#FFFFFF",
-                    border: `1px solid ${formType === opt.key ? "var(--red)" : "var(--border)"}`,
-                    color: formType === opt.key ? "#FFFFFF" : "var(--bone)",
+                    background: formType === opt.key ? "var(--red)" : "#12141C",
+                    border: `1px solid ${formType === opt.key ? "var(--red)" : "rgba(255, 255, 255, 0.15)"}`,
+                    color: "#FFFFFF",
                     fontFamily: "var(--font-display)",
                     fontWeight: 700,
                     fontSize: "0.85rem",
@@ -210,7 +209,7 @@ export default function ContactPage() {
                     textTransform: "uppercase",
                     cursor: "pointer",
                     borderRadius: "6px",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
                     transition: "all 0.3s ease",
                   }}
                 >
@@ -407,7 +406,7 @@ export default function ContactPage() {
       <section
         style={{
           padding: "4rem 2.5rem 6rem",
-          background: "#F8F9FA",
+          background: "var(--bg)",
           borderTop: "1px solid var(--border)",
         }}
       >

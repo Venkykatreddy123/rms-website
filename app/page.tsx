@@ -131,14 +131,14 @@ export default function HomePage() {
         style={{
           position: "relative",
           zIndex: 1,
-          minHeight: "100vh",
+          minHeight: "auto",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           overflow: "hidden",
           paddingTop: "5.5rem",
-          paddingBottom: "3rem",
+          paddingBottom: "1rem",
         }}
       >
         {/* 3D WebGL Canvas Layer (Ambient Stage Beams & Particles) */}
@@ -165,65 +165,42 @@ export default function HomePage() {
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "0.75rem",
-              marginBottom: "2rem",
+              gap: "0.85rem",
+              marginBottom: "1.75rem",
               flexWrap: "wrap",
               justifyContent: "center",
             }}
           >
             <span
+              className="hud-badge red"
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.5rem 1.1rem",
-                background: "rgba(230, 20, 56, 0.15)",
-                border: "1px solid rgba(230, 20, 56, 0.35)",
-                borderRadius: "100px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.72rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                color: "#FFFFFF",
-                backdropFilter: "blur(12px)",
+                fontSize: "0.76rem",
+                padding: "0.45rem 1.2rem",
+                letterSpacing: "0.14em",
               }}
             >
-              <span className="live-indicator" /> SEASON ONE · HYDERABAD 2026
+              <span className="live-indicator" /> SEASON 01 · HYDERABAD
             </span>
             <span
+              className="hud-badge gold"
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                padding: "0.5rem 1.1rem",
-                background: "rgba(184, 134, 11, 0.12)",
-                border: "1px solid rgba(184, 134, 11, 0.3)",
-                borderRadius: "100px",
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.72rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                color: "rgba(255, 255, 255, 0.9)",
-                backdropFilter: "blur(12px)",
+                fontSize: "0.76rem",
+                padding: "0.45rem 1.2rem",
+                letterSpacing: "0.14em",
               }}
             >
-              🏆 ₹25,00,000 CAREER LAUNCHPAD
+              ★ ₹25,00,000 CAREER LAUNCHPAD
             </span>
           </div>
 
-          {/* Main Display Headline — White on dark video for maximum clarity */}
+          {/* Main Display Headline — Bebas Neue Raw Editorial Impact */}
           <h1
             ref={headlineRef}
+            className="display-hero"
             style={{
-              fontSize: "clamp(3rem, 9vw, 8rem)",
-              fontFamily: "var(--font-display)",
-              fontWeight: 900,
-              fontStyle: "italic",
-              textTransform: "uppercase",
-              color: "#FFFFFF",
-              letterSpacing: "-0.02em",
-              lineHeight: 0.92,
-              textShadow: "0 4px 30px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.3)",
+              fontSize: "clamp(4rem, 9.5vw, 9rem)",
+              letterSpacing: "0.02em",
+              lineHeight: 0.9,
               margin: 0,
             }}
           >
@@ -231,25 +208,25 @@ export default function HomePage() {
             <span
               style={{
                 color: "#FF2A55",
-                textShadow: "0 0 40px rgba(230, 20, 56, 0.6), 0 4px 20px rgba(0, 0, 0, 0.4)",
+                textShadow: "0 0 60px rgba(255, 42, 85, 0.75), 0 4px 24px rgba(0, 0, 0, 0.55)",
                 display: "inline-block",
               }}
             >
-              Has a Story
+              Has a Story.
             </span>
           </h1>
 
           <p
             ref={subRef}
             style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 700,
-              fontSize: "clamp(1rem, 3vw, 2.2rem)",
-              letterSpacing: "0.18em",
+              fontFamily: "var(--font-sub)",
+              fontWeight: 600,
+              fontSize: "clamp(1rem, 1.8vw, 1.35rem)",
+              letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "rgba(255, 255, 255, 0.85)",
-              marginTop: "1.5rem",
-              textShadow: "0 2px 15px rgba(0, 0, 0, 0.4)",
+              color: "rgba(255, 255, 255, 0.72)",
+              marginTop: "1rem",
+              textShadow: "0 2px 14px rgba(0, 0, 0, 0.55)",
             }}
           >
             Every Story Needs a Stage
@@ -262,94 +239,78 @@ export default function HomePage() {
               display: "flex",
               gap: "1rem",
               justifyContent: "center",
-              marginTop: "2.8rem",
-              marginBottom: "2.5rem",
+              marginTop: "1.8rem",
+              marginBottom: "1.2rem",
               flexWrap: "wrap",
             }}
           >
             <Link
               href="/contact"
-              className="btn-primary"
+              className="btn-primary animate-red-pulse"
               style={{
-                padding: "1rem 2.6rem",
+                padding: "1.05rem 2.8rem",
                 borderRadius: "6px",
-                fontSize: "1rem",
+                fontSize: "1.05rem",
               }}
             >
               Register Your Band →
             </Link>
             <Link
               href="/competition"
+              className="btn-outline"
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "1rem 2.6rem",
+                padding: "1.05rem 2.8rem",
                 borderRadius: "6px",
-                fontSize: "1rem",
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                color: "#FFFFFF",
-                background: "rgba(255, 255, 255, 0.12)",
-                border: "1px solid rgba(255, 255, 255, 0.3)",
-                backdropFilter: "blur(16px)",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
+                fontSize: "1.05rem",
               }}
             >
               Explore The 4 Stages
             </Link>
           </div>
-        </div>
 
-        {/* Scroll down indicator */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "2rem",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "0.5rem",
-            pointerEvents: "none",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.6rem",
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-              color: "rgba(255, 255, 255, 0.5)",
-            }}
-          >
-            SCROLL TO EXPLORE
-          </span>
+          {/* Compact Scroll Down Indicator */}
           <div
             style={{
-              width: "1px",
-              height: "32px",
-              background: "linear-gradient(to bottom, rgba(230, 20, 56, 0.7), transparent)",
-              animation: "float 2s ease-in-out infinite",
+              display: "inline-flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "0.35rem",
+              marginTop: "0.5rem",
+              marginBottom: "0.5rem",
+              pointerEvents: "none",
             }}
-          />
+          >
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "0.62rem",
+                letterSpacing: "0.25em",
+                textTransform: "uppercase",
+                color: "rgba(255, 255, 255, 0.55)",
+              }}
+            >
+              SCROLL TO EXPLORE
+            </span>
+            <div
+              style={{
+                width: "1px",
+                height: "20px",
+                background: "linear-gradient(to bottom, var(--red), transparent)",
+                animation: "float 2s ease-in-out infinite",
+              }}
+            />
+          </div>
         </div>
       </section>
 
       {/* ─── WAVEFORM DIVIDER ─────────────────────────────────────────────── */}
       <WaveformDivider />
 
-      {/* ─── STATS & TELEMETRY BAR ────────────────────────────────────────── */}
+      {/* ─── STATS & FESTIVAL ACCREDITATION BADGES ───────────────────────── */}
       <section
         id="stats-section"
         style={{
-          padding: "5rem 2.5rem",
+          padding: "0.75rem 2.5rem 3rem 2.5rem",
           maxWidth: "1380px",
           margin: "0 auto",
         }}
@@ -367,40 +328,82 @@ export default function HomePage() {
               key={i}
               className="card-stage stat-card"
               style={{
-                padding: "2rem 1.75rem",
+                padding: "2.2rem 1.8rem",
                 textAlign: "left",
-                background: "#FFFFFF",
-                border: "1px solid rgba(0, 0, 0, 0.1)",
-                borderLeft: i === 2 ? "4px solid var(--gold)" : "4px solid var(--red)",
-                boxShadow: "0 4px 20px rgba(0, 0, 0, 0.04)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "220px",
+                borderTop: i === 2 ? "2px solid var(--gold)" : "2px solid var(--red)",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.5rem" }}>
-                <span className="mono-telemetry" style={{ fontSize: "0.7rem", color: "#4B5563", fontWeight: 700 }}>
-                  METRIC // 0{i + 1}
-                </span>
-                <span className="live-indicator" style={{ background: i === 2 ? "var(--gold)" : "var(--red)" }} />
+              <div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "1.2rem",
+                  }}
+                >
+                  <span
+                    className="label-caps"
+                    style={{
+                      fontSize: "0.72rem",
+                      color: i === 2 ? "var(--gold)" : "var(--red)",
+                    }}
+                  >
+                    {i === 0 ? "TALENT ROSTER" : i === 1 ? "GRAND ARENA" : i === 2 ? "CAREER FUND" : "PROGRESSION"}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.68rem",
+                      color: "rgba(255, 255, 255, 0.4)",
+                      letterSpacing: "0.1em",
+                    }}
+                  >
+                    0{i + 1}
+                  </span>
+                </div>
+
+                <p
+                  className="display-hero"
+                  style={{
+                    fontSize: "clamp(3.5rem, 5.5vw, 5.2rem)",
+                    color: i === 2 ? "var(--gold)" : "#FFFFFF",
+                    lineHeight: 0.88,
+                    letterSpacing: "0.02em",
+                    margin: "0 0 0.65rem 0",
+                  }}
+                >
+                  {stat.num}
+                </p>
+
+                <h4
+                  style={{
+                    fontFamily: "var(--font-sub)",
+                    fontWeight: 700,
+                    fontSize: "1.05rem",
+                    color: "rgba(255,255,255,0.85)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.14em",
+                    margin: "0 0 0.45rem 0",
+                  }}
+                >
+                  {stat.label}
+                </h4>
               </div>
 
-              <p className="stat-number" style={{ fontSize: "clamp(2.8rem, 4.5vw, 4.2rem)", margin: "0.25rem 0" }}>
-                {stat.num}
-              </p>
-
-              <h4
+              <p
                 style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 800,
-                  fontSize: "1.25rem",
-                  color: "#0F1115",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  margin: "0 0 0.4rem 0",
+                  fontFamily: "var(--font-body)",
+                  fontSize: "0.88rem",
+                  color: "#94A3B8",
+                  margin: 0,
+                  lineHeight: 1.5,
                 }}
               >
-                {stat.label}
-              </h4>
-
-              <p style={{ fontFamily: "var(--font-body)", fontSize: "0.88rem", color: "#374151", margin: 0, lineHeight: 1.55 }}>
                 {stat.detail}
               </p>
             </div>
@@ -412,7 +415,7 @@ export default function HomePage() {
       <section
         id="philosophy-section"
         style={{
-          padding: "8rem 2.5rem",
+          padding: "4rem 2.5rem",
           maxWidth: "1380px",
           margin: "0 auto",
           position: "relative",
@@ -431,15 +434,15 @@ export default function HomePage() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.8rem" }}>
               <span className="hud-badge red">THE RITHMOS MANIFESTO</span>
-              <span className="mono-telemetry" style={{ color: "#374151", fontWeight: 700 }}>WHY WE EXIST</span>
+              <span className="mono-telemetry" style={{ color: "#94A3B8", fontWeight: 700 }}>WHY WE EXIST</span>
             </div>
 
             <h2
               className="display-section"
               style={{
-                fontSize: "clamp(2.6rem, 5vw, 4.4rem)",
+                fontSize: "clamp(2.2rem, 4.2vw, 3.8rem)",
                 color: "var(--bone)",
-                marginBottom: "1.5rem",
+                marginBottom: "1.1rem",
               }}
             >
               Music is Alive.<br />
@@ -448,14 +451,14 @@ export default function HomePage() {
 
             <p
               style={{
-                fontFamily: "var(--font-display)",
-                fontWeight: 700,
-                fontSize: "1.3rem",
-                color: "var(--bone)",
-                letterSpacing: "0.05em",
+                fontFamily: "var(--font-sub)",
+                fontWeight: 600,
+                fontSize: "1.1rem",
+                color: "rgba(255,255,255,0.78)",
+                letterSpacing: "0.06em",
                 textTransform: "uppercase",
-                marginBottom: "1.25rem",
-                lineHeight: 1.4,
+                marginBottom: "1.1rem",
+                lineHeight: 1.45,
               }}
             >
               In a world of pre-programmed tracks and solo streaming playlists, the raw thunder of four musicians locking into a relentless groove is the most powerful force in modern culture.
@@ -508,7 +511,7 @@ export default function HomePage() {
                   position: "absolute",
                   inset: 0,
                   background:
-                    "linear-gradient(to top, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.1) 40%, rgba(230,20,56,0.15) 100%)",
+                    "linear-gradient(to top, rgba(7,8,10,0.92) 0%, rgba(7,8,10,0.2) 40%, rgba(230,20,56,0.15) 100%)",
                 }}
               />
 
@@ -520,12 +523,12 @@ export default function HomePage() {
                   bottom: "2rem",
                   left: "2rem",
                   right: "2rem",
-                  background: "rgba(255, 255, 255, 0.95)",
+                  background: "rgba(18, 20, 28, 0.94)",
                   backdropFilter: "blur(16px)",
-                  border: "1px solid rgba(0, 0, 0, 0.12)",
+                  border: "1px solid rgba(255, 255, 255, 0.15)",
                   borderRadius: "6px",
                   padding: "1.25rem",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.6)",
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.4rem" }}>
@@ -534,7 +537,7 @@ export default function HomePage() {
                   </span>
                   <span className="hud-badge gold">100% UNEDITED</span>
                 </div>
-                <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.2rem", color: "var(--bone)", margin: 0 }}>
+                <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.2rem", color: "#FFFFFF", margin: 0 }}>
                   &ldquo;A stage big enough to match the ambition of our sound.&rdquo;
                 </p>
               </div>
@@ -552,31 +555,32 @@ export default function HomePage() {
       {/* ─── THE FOUR SACRED VENUES MATRIX ────────────────────────────────── */}
       <VenueMatrixSection />
 
-      {/* ─── COMPETITION RULES & FAQ ──────────────────────────────────────── */}
+      {/* ─── COMPETITION RULES & BRIEFING ─────────────────────────────────── */}
       <section
         style={{
-          padding: "8rem 2.5rem",
+          padding: "4rem 2.5rem",
           maxWidth: "1380px",
           margin: "0 auto",
         }}
         id="rules-faq-section"
       >
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.6rem" }}>
-            <span className="hud-badge red">RULES & EVALUATION CRITERIA</span>
-            <span className="mono-telemetry">SEASON 01 SPECIFICATIONS</span>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.8rem" }}>
+            <span className="hud-badge red">OFFICIAL RULEBOOK</span>
+            <span className="mono-telemetry">SEASON 01 CODE OF CONDUCT</span>
           </div>
           <h2
             className="display-section"
             style={{
-              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-              color: "var(--bone)",
+              fontSize: "clamp(2.2rem, 4.2vw, 3.8rem)",
+              color: "#FFFFFF",
+              letterSpacing: "0em",
             }}
           >
-            Everything You Need <span style={{ color: "var(--red)" }}>To Know</span>
+            Everything You Need <span style={{ color: "var(--red)" }}>To Know.</span>
           </h2>
-          <p className="body-copy" style={{ maxWidth: "560px", margin: "1rem auto 0" }}>
-            Transparent rules, artist-first copyright protection, and professional touring backlines provided for every competitor.
+          <p className="body-copy" style={{ maxWidth: "580px", margin: "1rem auto 0" }}>
+            Transparent rules, 100% artist-retained copyrights, and professional touring backlines provided for every competitor.
           </p>
         </div>
 
@@ -584,52 +588,81 @@ export default function HomePage() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "1.5rem",
+            gap: "1.8rem",
           }}
           className="faq-grid"
         >
-          {rulesFAQ.map((faq, i) => (
-            <div
-              key={i}
-              className="card-stage"
-              style={{
-                padding: "2.2rem",
-                background: "#FFFFFF",
-                border: "1px solid rgba(0, 0, 0, 0.08)",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.04)",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.8rem" }}>
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontWeight: 700,
-                    fontSize: "0.8rem",
-                    color: "var(--red)",
-                  }}
-                >
-                  0{i + 1} //
-                </span>
-                <h4
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 800,
-                    fontSize: "1.3rem",
-                    color: "var(--bone)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.04em",
-                    margin: 0,
-                  }}
-                >
-                  {faq.q}
-                </h4>
-              </div>
+          {rulesFAQ.map((faq, i) => {
+            const categories = [
+              "ELIGIBILITY & CRITERIA",
+              "STAGE GEAR & BACKLINE",
+              "ARTIST RIGHTS & PUBLISHING",
+              "JURY & CROWD SCORING",
+            ];
+            return (
+              <div
+                key={i}
+                className="card-stage"
+                style={{
+                  padding: "2.4rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  borderLeft: i % 2 === 0 ? "3px solid var(--red)" : "3px solid var(--gold)",
+                }}
+              >
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+                    <span
+                      className="label-caps"
+                      style={{
+                        fontSize: "0.72rem",
+                        color: i % 2 === 0 ? "var(--red)" : "var(--gold)",
+                      }}
+                    >
+                      {categories[i]}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.7rem",
+                        color: "rgba(255, 255, 255, 0.4)",
+                      }}
+                    >
+                      SEC // 0{i + 1}
+                    </span>
+                  </div>
 
-              <p className="body-copy" style={{ fontSize: "0.9rem", lineHeight: 1.65, margin: 0 }}>
-                {faq.a}
-              </p>
-            </div>
-          ))}
+                  <h4
+                    style={{
+                      fontFamily: "var(--font-sub)",
+                      fontWeight: 700,
+                      fontSize: "1.2rem",
+                      color: "#FFFFFF",
+                      letterSpacing: "0.02em",
+                      lineHeight: 1.3,
+                      textTransform: "uppercase",
+                      margin: "0 0 0.85rem 0",
+                    }}
+                  >
+                    {faq.q}
+                  </h4>
+                </div>
+
+                <p
+                  className="body-copy"
+                  style={{
+                    fontSize: "0.95rem",
+                    lineHeight: 1.7,
+                    margin: 0,
+                    color: "#CBD5E1",
+                  }}
+                >
+                  {faq.a}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -638,22 +671,22 @@ export default function HomePage() {
         className="final-cta-section"
         style={{
           position: "relative",
-          padding: "10rem 2.5rem",
+          padding: "6rem 2.5rem",
           overflow: "hidden",
           textAlign: "center",
-          background: "#FFFFFF",
+          background: "#050608",
         }}
       >
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <Image
-            src="/images/trophy.jpg"
-            alt="RITHMOS Grand Trophy"
+            src="/images/clean-stage-cta.jpg"
+            alt="RITHMOS Grand Concert Stage"
             fill
             sizes="100vw"
             style={{
               objectFit: "cover",
-              objectPosition: "center 40%",
-              filter: "brightness(0.95) contrast(1.05)",
+              objectPosition: "center 45%",
+              filter: "brightness(0.85) contrast(1.15)",
             }}
           />
           <div
@@ -661,7 +694,7 @@ export default function HomePage() {
               position: "absolute",
               inset: 0,
               background:
-                "radial-gradient(circle at 50% 50%, rgba(200, 16, 46, 0.1) 0%, rgba(255,255,255,0.85) 55%, #FFFFFF 95%)",
+                "linear-gradient(180deg, rgba(7, 8, 10, 0.85) 0%, rgba(7, 8, 10, 0.4) 45%, rgba(7, 8, 10, 0.9) 100%)",
             }}
           />
         </div>
@@ -683,10 +716,11 @@ export default function HomePage() {
           <h2
             className="display-hero"
             style={{
-              fontSize: "clamp(3.5rem, 8.5vw, 7.5rem)",
+              fontSize: "clamp(3rem, 6.5vw, 6.5rem)",
               color: "var(--bone)",
-              marginBottom: "1.5rem",
+              marginBottom: "1rem",
               lineHeight: 0.9,
+              letterSpacing: "0.02em",
             }}
           >
             Your Band&apos;s<br />
@@ -727,20 +761,23 @@ export default function HomePage() {
       <style>{`
         @media (max-width: 1024px) {
           .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .about-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
           .faq-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 768px) {
-          #stats-section, #philosophy-section, #rules-faq-section {
-            padding: 3.5rem 1.25rem !important;
+          #stats-section {
+            padding: 0.5rem 1.25rem 2.5rem 1.25rem !important;
+          }
+          #philosophy-section, #rules-faq-section {
+            padding: 2.5rem 1.25rem !important;
           }
           .hero-content-wrapper {
             padding: 0 1rem !important;
           }
           #hero-cta-group {
-            margin-top: 1.8rem !important;
-            margin-bottom: 2rem !important;
-            gap: 0.85rem !important;
+            margin-top: 1.4rem !important;
+            margin-bottom: 1.2rem !important;
+            gap: 0.75rem !important;
           }
           #hero-cta-group a {
             width: 100% !important;
@@ -749,19 +786,19 @@ export default function HomePage() {
             text-align: center !important;
           }
           .philosophy-image-container {
-            height: 360px !important;
+            height: 340px !important;
           }
           .philosophy-badge-float {
-            bottom: 1rem !important;
-            left: 1rem !important;
-            right: 1rem !important;
-            padding: 0.85rem !important;
+            bottom: 0.75rem !important;
+            left: 0.75rem !important;
+            right: 0.75rem !important;
+            padding: 0.75rem !important;
           }
         }
         @media (max-width: 640px) {
           .stats-grid { grid-template-columns: 1fr !important; }
           .final-cta-section {
-            padding: 4.5rem 1.25rem !important;
+            padding: 3.5rem 1.25rem !important;
           }
         }
       `}</style>

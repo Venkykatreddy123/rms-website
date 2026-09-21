@@ -205,10 +205,10 @@ export default function CompetitionPage() {
         <h1
           className="display-hero"
           style={{
-            fontSize: "clamp(3rem, 7vw, 6.5rem)",
-            lineHeight: 0.95,
+            fontSize: "clamp(2.2rem, 5.2vw, 4.2rem)",
+            lineHeight: 0.96,
             color: "var(--bone)",
-            marginBottom: "2rem",
+            marginBottom: "1.25rem",
           }}
         >
           Four Stages.
@@ -260,10 +260,10 @@ export default function CompetitionPage() {
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
                 border: "1px solid var(--border)",
-                background: "#FFFFFF",
+                background: "#12141C",
                 borderRadius: "8px",
                 overflow: "hidden",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
               }}
             >
               {i % 2 !== 0 && (
@@ -272,13 +272,13 @@ export default function CompetitionPage() {
                     src={stage.img}
                     alt={stage.title}
                     fill
-                    style={{ objectFit: "cover", filter: "saturate(0.8)" }}
+                    style={{ objectFit: "cover", filter: "saturate(0.8) brightness(0.85)" }}
                   />
                   <div
                     style={{
                       position: "absolute",
                       inset: 0,
-                      background: `linear-gradient(to right, transparent 0%, rgba(255,255,255,0.4) 100%)`,
+                      background: `linear-gradient(to right, transparent 0%, rgba(7,8,10,0.7) 100%)`,
                     }}
                   />
                 </div>
@@ -290,7 +290,7 @@ export default function CompetitionPage() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  background: "#FFFFFF",
+                  background: "#12141C",
                 }}
               >
                 <div style={{ display: "flex", alignItems: "baseline", gap: "1rem", marginBottom: "0.75rem" }}>
@@ -361,13 +361,13 @@ export default function CompetitionPage() {
                     src={stage.img}
                     alt={stage.title}
                     fill
-                    style={{ objectFit: "cover", filter: "saturate(0.8)" }}
+                    style={{ objectFit: "cover", filter: "saturate(0.8) brightness(0.85)" }}
                   />
                   <div
                     style={{
                       position: "absolute",
                       inset: 0,
-                      background: `linear-gradient(to left, transparent 0%, rgba(255,255,255,0.4) 100%)`,
+                      background: `linear-gradient(to left, transparent 0%, rgba(7,8,10,0.7) 100%)`,
                     }}
                   />
                 </div>
@@ -408,14 +408,14 @@ export default function CompetitionPage() {
             <div
               key={item.category}
               style={{
-                background: "#FFFFFF",
+                background: "#12141C",
                 border: "1px solid var(--border)",
                 borderRadius: "10px",
                 padding: "1.8rem",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.05)",
+                boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
               }}
             >
               <div>
@@ -460,11 +460,11 @@ export default function CompetitionPage() {
             <div
               key={v.name}
               style={{
-                background: "#FFFFFF",
+                background: "#12141C",
                 border: "1px solid var(--border)",
                 borderRadius: "8px",
                 padding: "2rem",
-                boxShadow: "0 8px 24px rgba(0,0,0,0.05)",
+                boxShadow: "0 8px 30px rgba(0,0,0,0.4)",
               }}
             >
               <span style={{ fontSize: "0.65rem", fontFamily: "var(--font-mono)", color: "var(--red)", background: "rgba(230,20,56,0.08)", padding: "3px 8px", borderRadius: "4px", fontWeight: 700 }}>
@@ -505,14 +505,14 @@ export default function CompetitionPage() {
             <div
               key={p.tier}
               style={{
-                background: "#FFFFFF",
-                border: `1px solid ${p.color === "var(--gold)" ? "rgba(184,134,11,0.4)" : "var(--border)"}`,
+                background: "#12141C",
+                border: `1px solid ${p.color === "var(--gold)" ? "rgba(184,134,11,0.5)" : "var(--border)"}`,
                 borderRadius: "10px",
                 padding: "2rem",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
-                boxShadow: p.color === "var(--gold)" ? "0 10px 30px rgba(184,134,11,0.12)" : "0 8px 24px rgba(0,0,0,0.05)",
+                boxShadow: p.color === "var(--gold)" ? "0 10px 30px rgba(184,134,11,0.25)" : "0 8px 30px rgba(0,0,0,0.4)",
               }}
             >
               <div>
@@ -592,7 +592,7 @@ export default function CompetitionPage() {
       </section>
 
       {/* ─── CTA ─────────────────────────────────────────────────────────── */}
-      <section style={{ padding: "6rem 2.5rem", textAlign: "center", background: "#F8F9FA", borderTop: "1px solid var(--border)" }}>
+      <section style={{ padding: "6rem 2.5rem", textAlign: "center", background: "var(--bg)", borderTop: "1px solid var(--border)" }}>
         <h2 className="display-section" style={{ fontSize: "clamp(2rem, 5vw, 3.8rem)", color: "var(--bone)", marginBottom: "1.5rem" }}>
           Ready for the <span style={{ color: "var(--red)" }}>Main Stage?</span>
         </h2>

@@ -104,8 +104,8 @@ const stages: StageData[] = [
       "4K professionally color-graded live concert video of your performance",
       "National media feature on Rolling Stone India Indie Radar",
     ],
-    cta: "Book Club Passes",
-    ctaLink: "/experience",
+    cta: "View Knockout Schedule",
+    ctaLink: "/competition",
   },
   {
     id: "stage-3",
@@ -296,7 +296,7 @@ export default function JourneyHorizontalScroll() {
           height: "100vh",
           width: "100%",
           overflow: "hidden",
-          background: "#F8F9FA",
+          background: "var(--bg)",
         }}
         id="journey-scroll-section"
       >
@@ -313,9 +313,9 @@ export default function JourneyHorizontalScroll() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          background: "linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.9) 100%)",
-          borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.03)",
+          background: "linear-gradient(180deg, rgba(7,8,10,0.98) 0%, rgba(7,8,10,0.92) 100%)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.4)",
           flexWrap: "wrap",
           gap: "1rem",
         }}
@@ -342,23 +342,23 @@ export default function JourneyHorizontalScroll() {
                   alignItems: "center",
                   gap: "0.5rem",
                   padding: "0.4rem 0.9rem",
-                  background: isActive ? "rgba(230, 20, 56, 0.12)" : "#FFFFFF",
-                  border: `1px solid ${isActive ? stage.accentColor : "rgba(0, 0, 0, 0.14)"}`,
+                  background: isActive ? "rgba(230, 20, 56, 0.18)" : "rgba(255, 255, 255, 0.06)",
+                  border: `1px solid ${isActive ? stage.accentColor : "rgba(255, 255, 255, 0.12)"}`,
                   borderRadius: "4px",
-                  color: isActive ? "#E61438" : "var(--muted)",
+                  color: isActive ? "#FF2E55" : "var(--muted)",
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.75rem",
                   fontWeight: 700,
                   cursor: "pointer",
                   transition: "all 0.25s ease",
-                  boxShadow: isActive ? "0 2px 10px rgba(230,20,56,0.15)" : "0 1px 4px rgba(0,0,0,0.04)",
+                  boxShadow: isActive ? "0 2px 10px rgba(230,20,56,0.25)" : "none",
                   whiteSpace: "nowrap",
                 }}
               >
                 <span style={{ color: isActive ? stage.accentColor : "var(--muted)" }}>
                   {stage.number}
                 </span>
-                <span style={{ fontFamily: "var(--font-display)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                <span style={{ fontFamily: "var(--font-display)", letterSpacing: "0.05em", textTransform: "uppercase", color: isActive ? "#FFFFFF" : "#CBD5E1" }}>
                   {stage.title.split(" ")[1] || stage.title}
                 </span>
               </button>
@@ -398,16 +398,16 @@ export default function JourneyHorizontalScroll() {
                 minWidth: "820px",
                 height: "calc(100vh - 8.5rem)",
                 maxHeight: "740px",
-                background: "#FFFFFF",
-                border: `1px solid ${isSelected ? stage.accentColor : "rgba(0, 0, 0, 0.12)"}`,
+                background: "#12141C",
+                border: `1px solid ${isSelected ? stage.accentColor : "rgba(255, 255, 255, 0.12)"}`,
                 borderRadius: "8px",
                 position: "relative",
                 overflow: "hidden",
                 display: "grid",
                 gridTemplateColumns: "1.1fr 1.3fr",
                 boxShadow: isSelected
-                  ? `0 20px 50px -10px rgba(230, 20, 56, 0.15), 0 10px 25px rgba(0,0,0,0.06)`
-                  : "0 12px 35px rgba(0,0,0,0.07)",
+                  ? `0 20px 50px -10px rgba(230, 20, 56, 0.35), 0 10px 25px rgba(0,0,0,0.6)`
+                  : "0 12px 35px rgba(0,0,0,0.5)",
                 transition: "border-color 0.35s ease, box-shadow 0.35s ease",
               }}
             >
@@ -429,7 +429,7 @@ export default function JourneyHorizontalScroll() {
                   style={{
                     objectFit: "cover",
                     objectPosition: "center",
-                    filter: "contrast(1.18) brightness(0.88)",
+                    filter: "contrast(1.18) brightness(0.85)",
                   }}
                 />
                 <div
@@ -437,7 +437,7 @@ export default function JourneyHorizontalScroll() {
                     position: "absolute",
                     inset: 0,
                     background:
-                      "linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.15) 45%, rgba(255,255,255,0.6) 100%)",
+                      "linear-gradient(to top, rgba(7,8,10,0.95) 0%, rgba(7,8,10,0.15) 45%, rgba(7,8,10,0.6) 100%)",
                   }}
                 />
 
@@ -448,7 +448,7 @@ export default function JourneyHorizontalScroll() {
                     top: "1rem",
                     left: "1.5rem",
                     fontFamily: "var(--font-display)",
-                    fontWeight: 900,
+                    fontWeight: 400,
                     fontSize: "7.5rem",
                     lineHeight: 0.8,
                     color: "transparent",
@@ -468,7 +468,7 @@ export default function JourneyHorizontalScroll() {
                     left: 0,
                     right: 0,
                     padding: "1.5rem",
-                    background: "linear-gradient(to top, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.7) 100%)",
+                    background: "linear-gradient(to top, rgba(7,8,10,0.98) 0%, rgba(7,8,10,0.7) 100%)",
                   }}
                 >
                   <div
@@ -476,18 +476,18 @@ export default function JourneyHorizontalScroll() {
                       display: "grid",
                       gridTemplateColumns: "1fr 1fr",
                       gap: "0.75rem",
-                      background: "#FFFFFF",
-                      border: "1px solid rgba(0, 0, 0, 0.1)",
+                      background: "#161922",
+                      border: "1px solid rgba(255, 255, 255, 0.12)",
                       borderRadius: "6px",
                       padding: "1rem",
-                      boxShadow: "0 4px 15px rgba(0,0,0,0.06)",
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
                     }}
                   >
                     <div>
                       <span className="mono-telemetry" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>
                         QUALIFIED COHORT
                       </span>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.05rem", color: "#0F1115", margin: "0.15rem 0 0" }}>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.25rem", letterSpacing: "0.02em", color: "#FFFFFF", margin: "0.15rem 0 0" }}>
                         {stage.metrics.bands}
                       </p>
                     </div>
@@ -496,7 +496,7 @@ export default function JourneyHorizontalScroll() {
                       <span className="mono-telemetry" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>
                         CROWD PRESSURE
                       </span>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.05rem", color: stage.accentColor, margin: "0.15rem 0 0" }}>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.25rem", letterSpacing: "0.02em", color: stage.accentColor, margin: "0.15rem 0 0" }}>
                         {stage.metrics.crowd}
                       </p>
                     </div>
@@ -505,7 +505,7 @@ export default function JourneyHorizontalScroll() {
                       <span className="mono-telemetry" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>
                         DECIBEL RATING
                       </span>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.05rem", color: "#0F1115", margin: "0.15rem 0 0" }}>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.25rem", letterSpacing: "0.02em", color: "#FFFFFF", margin: "0.15rem 0 0" }}>
                         {stage.metrics.soundPressure}
                       </p>
                     </div>
@@ -514,7 +514,7 @@ export default function JourneyHorizontalScroll() {
                       <span className="mono-telemetry" style={{ fontSize: "0.65rem", color: "var(--muted)" }}>
                         PRODUCTION LEVEL
                       </span>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.05rem", color: "var(--gold)", margin: "0.15rem 0 0" }}>
+                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "1.25rem", letterSpacing: "0.02em", color: "var(--gold)", margin: "0.15rem 0 0" }}>
                         {stage.metrics.broadcast}
                       </p>
                     </div>
@@ -531,7 +531,7 @@ export default function JourneyHorizontalScroll() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
-                  background: "#FFFFFF",
+                  background: "#12141C",
                 }}
               >
                 <div>
@@ -558,7 +558,7 @@ export default function JourneyHorizontalScroll() {
                     className="display-section"
                     style={{
                       fontSize: "clamp(2rem, 3.4vw, 3rem)",
-                      color: "#0F1115",
+                      color: "#FFFFFF",
                       marginBottom: "0.3rem",
                       lineHeight: 0.95,
                     }}
@@ -569,10 +569,10 @@ export default function JourneyHorizontalScroll() {
                   <p
                     style={{
                       fontFamily: "var(--font-display)",
-                      fontWeight: 800,
-                      fontSize: "1.1rem",
+                      fontWeight: 400,
+                      fontSize: "1.3rem",
                       color: stage.accentColor,
-                      letterSpacing: "0.05em",
+                      letterSpacing: "0.02em",
                       textTransform: "uppercase",
                       marginBottom: "1.25rem",
                     }}
@@ -585,7 +585,7 @@ export default function JourneyHorizontalScroll() {
                     style={{
                       display: "flex",
                       gap: "0.5rem",
-                      borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
+                      borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
                       paddingBottom: "0.6rem",
                       marginBottom: "1.25rem",
                     }}
@@ -596,9 +596,9 @@ export default function JourneyHorizontalScroll() {
                         onClick={() => setCardTab((prev) => ({ ...prev, [i]: tab }))}
                         style={{
                           padding: "0.4rem 0.85rem",
-                          background: currentTab === tab ? "rgba(230, 20, 56, 0.12)" : "#F8F9FA",
-                          border: `1px solid ${currentTab === tab ? "var(--red)" : "rgba(0,0,0,0.08)"}`,
-                          color: currentTab === tab ? "var(--red)" : "var(--muted)",
+                          background: currentTab === tab ? "rgba(230, 20, 56, 0.18)" : "rgba(255, 255, 255, 0.06)",
+                          border: `1px solid ${currentTab === tab ? "var(--red)" : "rgba(255, 255, 255, 0.12)"}`,
+                          color: currentTab === tab ? "#FF2E55" : "var(--muted)",
                           fontFamily: "var(--font-mono)",
                           fontSize: "0.72rem",
                           fontWeight: 700,
@@ -621,7 +621,7 @@ export default function JourneyHorizontalScroll() {
                           <span style={{ color: stage.accentColor, fontSize: "0.9rem", lineHeight: "1.6" }}>
                             ◆
                           </span>
-                          <p className="body-copy" style={{ fontSize: "0.92rem", lineHeight: 1.6, margin: 0, color: "#2D3139" }}>
+                          <p className="body-copy" style={{ fontSize: "0.92rem", lineHeight: 1.6, margin: 0, color: "#CBD5E1" }}>
                             {detail}
                           </p>
                         </div>
@@ -633,8 +633,8 @@ export default function JourneyHorizontalScroll() {
                   {currentTab === "evaluation" && (
                     <div
                       style={{
-                        background: "#F8F9FA",
-                        border: "1px solid rgba(0, 0, 0, 0.08)",
+                        background: "#161922",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
                         borderRadius: "6px",
                         padding: "1.1rem",
                         marginBottom: "1.25rem",
@@ -647,14 +647,14 @@ export default function JourneyHorizontalScroll() {
                         {stage.evaluation.map((crit, cIdx) => (
                           <div key={cIdx}>
                             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.25rem" }}>
-                              <span style={{ fontSize: "0.76rem", color: "#0F1115", fontFamily: "var(--font-body)", fontWeight: 500 }}>
+                              <span style={{ fontSize: "0.76rem", color: "#FFFFFF", fontFamily: "var(--font-body)", fontWeight: 500 }}>
                                 {crit.label}
                               </span>
                               <span style={{ fontSize: "0.76rem", color: stage.accentColor, fontFamily: "var(--font-mono)", fontWeight: 700 }}>
                                 {crit.pct}%
                               </span>
                             </div>
-                            <div style={{ height: "5px", background: "rgba(0,0,0,0.08)", borderRadius: "3px", overflow: "hidden" }}>
+                            <div style={{ height: "5px", background: "rgba(255,255,255,0.08)", borderRadius: "3px", overflow: "hidden" }}>
                               <div
                                 style={{
                                   height: "100%",
@@ -674,8 +674,8 @@ export default function JourneyHorizontalScroll() {
                   {currentTab === "perks" && (
                     <div
                       style={{
-                        background: "#F8F9FA",
-                        border: "1px solid rgba(184, 134, 11, 0.25)",
+                        background: "#161922",
+                        border: "1px solid rgba(184, 134, 11, 0.35)",
                         borderRadius: "6px",
                         padding: "1.1rem",
                         marginBottom: "1.25rem",
@@ -686,7 +686,7 @@ export default function JourneyHorizontalScroll() {
                       </p>
                       <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                         {stage.prizesOrPerks.map((perk, pIdx) => (
-                          <p key={pIdx} style={{ fontSize: "0.85rem", color: "#0F1115", margin: 0, display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                          <p key={pIdx} style={{ fontSize: "0.85rem", color: "#FFFFFF", margin: 0, display: "flex", alignItems: "center", gap: "0.5rem" }}>
                             <span style={{ color: "var(--gold)" }}>★</span> {perk}
                           </p>
                         ))}
@@ -701,21 +701,21 @@ export default function JourneyHorizontalScroll() {
                       alignItems: "center",
                       gap: "0.75rem",
                       padding: "0.75rem 1rem",
-                      background: "rgba(230, 20, 56, 0.06)",
-                      border: "1px solid rgba(230, 20, 56, 0.2)",
+                      background: "rgba(230, 20, 56, 0.12)",
+                      border: "1px solid rgba(230, 20, 56, 0.3)",
                       borderRadius: "4px",
                       marginBottom: "1.25rem",
                     }}
                   >
                     <span style={{ fontSize: "1rem" }}>🎛️</span>
-                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "#0F1115", margin: 0 }}>
+                    <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "#CBD5E1", margin: 0 }}>
                       <strong style={{ color: "var(--red)" }}>STAGE BACKLINE RIDER:</strong> {stage.techSpec}
                     </p>
                   </div>
                 </div>
 
                 {/* Bottom CTA */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "0.85rem", borderTop: "1px solid rgba(0, 0, 0, 0.08)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "0.85rem", borderTop: "1px solid rgba(255, 255, 255, 0.12)" }}>
                   <span className="mono-telemetry" style={{ fontSize: "0.74rem", color: "var(--muted)" }}>
                     HYDERABAD · 2026
                   </span>
@@ -744,7 +744,7 @@ export default function JourneyHorizontalScroll() {
           height: auto !important;
           overflow: visible !important;
           padding-top: 5rem !important;
-          padding-bottom: 3.5rem !important;
+          padding-bottom: 2rem !important;
         }
         .journey-hud-bar {
           position: sticky !important;

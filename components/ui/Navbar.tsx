@@ -8,9 +8,8 @@ const navLinks = [
   { href: "/", label: "Home", subtitle: "Arena Overview & Live Countdown", tag: "LIVE", icon: "⚡" },
   { href: "/about", label: "About", subtitle: "Mission, Rules & Festival Ethos", tag: "STORY", icon: "🏛️" },
   { href: "/competition", label: "Competition", subtitle: "Knockout Bracket & Scoring", tag: "BRACKET", icon: "🏆" },
-  { href: "/experience", label: "Experience", subtitle: "3 Stadiums & Tour Schedule", tag: "VENUES", icon: "🎸" },
-  { href: "/watch", label: "Watch", subtitle: "Multi-Cam Broadcast & Feeds", tag: "4K LIVE", icon: "🔴" },
   { href: "/partners", label: "Partners", subtitle: "Sponsors & Industry Alliance", tag: "ALLIANCE", icon: "🤝" },
+  { href: "/contact", label: "Contact", subtitle: "Auditions, Press & Passes", tag: "CONNECT", icon: "📬" },
 ];
 
 export default function Navbar() {
@@ -57,22 +56,23 @@ export default function Navbar() {
           alignItems: "center",
           justifyContent: "space-between",
           background: scrolled
-            ? "rgba(255, 255, 255, 0.96)"
-            : "rgba(0, 0, 0, 0.2)",
-          backdropFilter: scrolled ? "blur(20px)" : "blur(12px)",
-          WebkitBackdropFilter: scrolled ? "blur(20px)" : "blur(12px)",
+            ? "rgba(7, 8, 10, 0.96)"
+            : "rgba(0, 0, 0, 0.4)",
+          backdropFilter: scrolled ? "blur(24px)" : "blur(14px)",
+          WebkitBackdropFilter: scrolled ? "blur(24px)" : "blur(14px)",
           borderBottom: scrolled
-            ? "1px solid rgba(0, 0, 0, 0.08)"
+            ? "1px solid rgba(255, 255, 255, 0.12)"
             : "1px solid rgba(255, 255, 255, 0.08)",
           boxShadow: scrolled
-            ? "0 4px 24px rgba(0, 0, 0, 0.06)"
+            ? "0 4px 24px rgba(0, 0, 0, 0.5)"
             : "none",
-          transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+          transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        {/* Logo */}
+        {/* Logo — Shifted right with marginLeft and increased size */}
         <Link
           href="/"
+          className="navbar-logo-link"
           style={{
             display: "flex",
             alignItems: "center",
@@ -80,6 +80,7 @@ export default function Navbar() {
             textDecoration: "none",
             position: "relative",
             zIndex: 1001,
+            marginLeft: "1.25rem",
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -88,13 +89,13 @@ export default function Navbar() {
             alt="RITHMOS — Where Bands Rise"
             className="navbar-logo-img"
             style={{
-              height: "42px",
+              height: "72px",
               width: "auto",
               display: "block",
               filter: scrolled
-                ? "drop-shadow(0 2px 8px rgba(0,0,0,0.06))"
-                : "drop-shadow(0 2px 8px rgba(0,0,0,0.2)) brightness(1.15)",
-              transition: "transform 0.25s ease, filter 0.4s ease",
+                ? "drop-shadow(0 2px 10px rgba(0,0,0,0.5))"
+                : "drop-shadow(0 2px 14px rgba(0,0,0,0.6)) brightness(1.15)",
+              transition: "transform 0.25s ease, filter 0.35s ease",
             }}
           />
         </Link>
@@ -104,7 +105,7 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "2rem",
+            gap: "2.2rem",
           }}
           className="hidden-mobile"
         >
@@ -118,11 +119,12 @@ export default function Navbar() {
                 style={{
                   color: isActive
                     ? "var(--red)"
-                    : scrolled
-                    ? "#2D3139"
-                    : "rgba(255, 255, 255, 0.9)",
-                  fontWeight: isActive ? 700 : undefined,
-                  transition: "color 0.4s ease",
+                    : "#FFFFFF",
+                  fontWeight: isActive ? 800 : 700,
+                  fontSize: "0.95rem",
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                  transition: "color 0.25s ease",
                 }}
               >
                 {link.label}
@@ -132,15 +134,15 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA & Mobile Hamburger Controls */}
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", position: "relative", zIndex: 1001 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.85rem", position: "relative", zIndex: 1001, marginRight: "1rem" }}>
           <Link
             href="/contact"
             className="btn-primary nav-desktop-cta"
             style={{
               fontSize: "0.82rem",
-              padding: "0.55rem 1.35rem",
+              padding: "0.55rem 1.45rem",
               borderRadius: "24px",
-              boxShadow: "0 4px 14px rgba(230, 20, 56, 0.25)",
+              boxShadow: "0 4px 14px rgba(230, 20, 56, 0.4)",
             }}
           >
             Register Your Band
@@ -154,15 +156,15 @@ export default function Navbar() {
               display: "none",
               background: "linear-gradient(135deg, #E61438, #FF244B)",
               color: "#FFFFFF",
-              fontFamily: "var(--font-display)",
-              fontWeight: 800,
-              fontSize: "0.78rem",
-              letterSpacing: "0.06em",
+              fontFamily: "var(--font-sub)",
+              fontWeight: 700,
+              fontSize: "0.82rem",
+              letterSpacing: "0.08em",
               textTransform: "uppercase",
               padding: "0.45rem 0.95rem",
               borderRadius: "20px",
               textDecoration: "none",
-              boxShadow: "0 3px 10px rgba(230, 20, 56, 0.3)",
+              boxShadow: "0 3px 10px rgba(230, 20, 56, 0.4)",
               transition: "transform 0.15s ease",
             }}
           >
@@ -176,8 +178,8 @@ export default function Navbar() {
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
             style={{
-              background: menuOpen ? "rgba(230, 20, 56, 0.08)" : "rgba(0, 0, 0, 0.04)",
-              border: menuOpen ? "1px solid rgba(230, 20, 56, 0.2)" : "1px solid rgba(0, 0, 0, 0.08)",
+              background: menuOpen ? "rgba(230, 20, 56, 0.15)" : "rgba(255, 255, 255, 0.08)",
+              border: menuOpen ? "1px solid rgba(230, 20, 56, 0.4)" : "1px solid rgba(255, 255, 255, 0.15)",
               cursor: "pointer",
               display: "none",
               flexDirection: "column",
@@ -196,7 +198,7 @@ export default function Navbar() {
                 display: "block",
                 width: "20px",
                 height: "2px",
-                background: menuOpen ? "var(--red)" : "#0F1115",
+                background: menuOpen ? "var(--red)" : "#FFFFFF",
                 borderRadius: "3px",
                 transformOrigin: "center",
                 transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none",
@@ -208,7 +210,7 @@ export default function Navbar() {
                 display: "block",
                 width: "20px",
                 height: "2px",
-                background: menuOpen ? "var(--red)" : "#0F1115",
+                background: menuOpen ? "var(--red)" : "#FFFFFF",
                 borderRadius: "3px",
                 opacity: menuOpen ? 0 : 1,
                 transform: menuOpen ? "scale(0)" : "scale(1)",
@@ -220,7 +222,7 @@ export default function Navbar() {
                 display: "block",
                 width: "20px",
                 height: "2px",
-                background: menuOpen ? "var(--red)" : "#0F1115",
+                background: menuOpen ? "var(--red)" : "#FFFFFF",
                 borderRadius: "3px",
                 transformOrigin: "center",
                 transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none",
@@ -240,9 +242,9 @@ export default function Navbar() {
             position: "fixed",
             inset: 0,
             zIndex: 999,
-            background: "rgba(15, 17, 21, 0.35)",
-            backdropFilter: "blur(6px)",
-            WebkitBackdropFilter: "blur(6px)",
+            background: "rgba(0, 0, 0, 0.7)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
             animation: "fadeInBackdrop 0.25s ease-out forwards",
           }}
         >
@@ -256,14 +258,14 @@ export default function Navbar() {
               right: 0,
               maxHeight: "100vh",
               overflowY: "auto",
-              background: "rgba(255, 255, 255, 0.98)",
+              background: "rgba(10, 12, 18, 0.98)",
               backdropFilter: "blur(32px)",
               WebkitBackdropFilter: "blur(32px)",
               borderBottomLeftRadius: "28px",
               borderBottomRightRadius: "28px",
-              boxShadow: "0 24px 60px rgba(0, 0, 0, 0.16), 0 4px 16px rgba(230, 20, 56, 0.08)",
-              border: "1px solid rgba(0, 0, 0, 0.06)",
-              padding: "5rem 1.25rem 2rem 1.25rem",
+              boxShadow: "0 24px 60px rgba(0, 0, 0, 0.8), 0 4px 20px rgba(230, 20, 56, 0.15)",
+              border: "1px solid rgba(255, 255, 255, 0.12)",
+              padding: "5.5rem 1.25rem 2rem 1.25rem",
               display: "flex",
               flexDirection: "column",
               gap: "1.25rem",
@@ -281,9 +283,9 @@ export default function Navbar() {
             >
               {[
                 { label: "BRACKET", icon: "🏆", href: "/competition" },
-                { label: "LIVE 4K", icon: "🔴", href: "/watch" },
-                { label: "VENUES", icon: "📍", href: "/experience" },
-                { label: "BANDS", icon: "🎸", href: "/#bands" },
+                { label: "ABOUT", icon: "🏛️", href: "/about" },
+                { label: "CONTACT", icon: "📬", href: "/contact" },
+                { label: "PARTNERS", icon: "🤝", href: "/partners" },
               ].map((chip) => (
                 <Link
                   key={chip.label}
@@ -295,8 +297,8 @@ export default function Navbar() {
                     alignItems: "center",
                     justifyContent: "center",
                     padding: "0.6rem 0.25rem",
-                    background: "rgba(0, 0, 0, 0.025)",
-                    border: "1px solid rgba(0, 0, 0, 0.05)",
+                    background: "rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
                     borderRadius: "14px",
                     textDecoration: "none",
                     transition: "all 0.2s ease",
@@ -308,7 +310,7 @@ export default function Navbar() {
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.62rem",
                       fontWeight: 800,
-                      color: chip.label.includes("LIVE") ? "var(--red)" : "#1F242F",
+                      color: "#FFFFFF",
                       letterSpacing: "0.05em",
                     }}
                   >
@@ -322,7 +324,7 @@ export default function Navbar() {
             <div
               style={{
                 height: "1px",
-                background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.06), transparent)",
+                background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)",
               }}
             />
 
@@ -346,7 +348,7 @@ export default function Navbar() {
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.68rem",
-                    color: "#8B90A0",
+                    color: "#94A3B8",
                     fontWeight: 700,
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
@@ -392,11 +394,11 @@ export default function Navbar() {
                       padding: "0.75rem 1rem",
                       borderRadius: "16px",
                       background: isActive
-                        ? "rgba(230, 20, 56, 0.07)"
-                        : "rgba(0, 0, 0, 0.02)",
+                        ? "rgba(230, 20, 56, 0.15)"
+                        : "rgba(255, 255, 255, 0.04)",
                       border: isActive
-                        ? "1px solid rgba(230, 20, 56, 0.18)"
-                        : "1px solid rgba(0, 0, 0, 0.04)",
+                        ? "1px solid rgba(230, 20, 56, 0.4)"
+                        : "1px solid rgba(255, 255, 255, 0.08)",
                       textDecoration: "none",
                       transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
                     }}
@@ -410,8 +412,8 @@ export default function Navbar() {
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          background: isActive ? "var(--red)" : "rgba(0, 0, 0, 0.04)",
-                          color: isActive ? "#FFFFFF" : "#5A5D68",
+                          background: isActive ? "var(--red)" : "rgba(255, 255, 255, 0.08)",
+                          color: "#FFFFFF",
                           fontFamily: "var(--font-mono)",
                           fontSize: "0.75rem",
                           fontWeight: 800,
@@ -426,7 +428,7 @@ export default function Navbar() {
                             fontFamily: "var(--font-display)",
                             fontWeight: 800,
                             fontSize: "1.32rem",
-                            color: isActive ? "var(--red)" : "#0F1115",
+                            color: isActive ? "var(--red)" : "#FFFFFF",
                             letterSpacing: "0.03em",
                             lineHeight: 1.15,
                             textTransform: "uppercase",
@@ -438,7 +440,7 @@ export default function Navbar() {
                           style={{
                             fontFamily: "var(--font-body)",
                             fontSize: "0.72rem",
-                            color: "#6B7280",
+                            color: "#94A3B8",
                             marginTop: "1px",
                           }}
                         >
@@ -457,9 +459,9 @@ export default function Navbar() {
                             padding: "2px 7px",
                             borderRadius: "10px",
                             background: isActive
-                              ? "rgba(230, 20, 56, 0.15)"
-                              : "rgba(0, 0, 0, 0.05)",
-                            color: isActive ? "var(--red)" : "#6B7280",
+                              ? "rgba(230, 20, 56, 0.25)"
+                              : "rgba(255, 255, 255, 0.08)",
+                            color: isActive ? "#FF2E55" : "#CBD5E1",
                           }}
                         >
                           {link.tag}
@@ -467,7 +469,7 @@ export default function Navbar() {
                       )}
                       <span
                         style={{
-                          color: isActive ? "var(--red)" : "#9CA3AF",
+                          color: isActive ? "var(--red)" : "#64748B",
                           fontSize: "1.1rem",
                           fontWeight: 700,
                         }}
@@ -555,17 +557,23 @@ export default function Navbar() {
 
       <style>{`
         .navbar-main {
-          padding: 0.95rem 2.5rem;
+          padding: 0.75rem 3.5rem;
+        }
+        @media (max-width: 1024px) {
+          .navbar-main {
+            padding: 0.75rem 2rem !important;
+          }
         }
         @media (max-width: 768px) {
           .navbar-main {
-            padding: 0.65rem 1.1rem !important;
+            padding: 0.6rem 1.25rem !important;
           }
           .hidden-mobile { display: none !important; }
           .mobile-menu-btn { display: flex !important; }
           .nav-desktop-cta { display: none !important; }
           .nav-mobile-cta { display: inline-block !important; }
-          .navbar-logo-img { height: 34px !important; }
+          .navbar-logo-img { height: 52px !important; }
+          .navbar-logo-link { margin-left: 0.25rem !important; }
         }
         @keyframes fadeInBackdrop {
           from { opacity: 0; }

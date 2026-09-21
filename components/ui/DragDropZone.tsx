@@ -105,7 +105,7 @@ export default function DragDropZone() {
         ctx.shadowColor = "#E61438";
         ctx.shadowBlur = 6;
       } else {
-        ctx.fillStyle = "rgba(0, 0, 0, 0.22)";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.25)";
         ctx.shadowBlur = 0;
       }
 
@@ -114,9 +114,9 @@ export default function DragDropZone() {
 
     // Draw Playhead Line
     const playheadX = playProgress * width;
-    ctx.strokeStyle = "#0F1115";
+    ctx.strokeStyle = "#FFFFFF";
     ctx.lineWidth = 2;
-    ctx.shadowColor = "rgba(0, 0, 0, 0.3)";
+    ctx.shadowColor = "rgba(230, 20, 56, 0.6)";
     ctx.shadowBlur = 4;
     ctx.beginPath();
     ctx.moveTo(playheadX, 0);
@@ -304,17 +304,17 @@ export default function DragDropZone() {
         onDragLeave={onDragLeave}
         onDrop={onDrop}
         style={{
-          border: `2px dashed ${isDragging ? "var(--red)" : "rgba(0,0,0,0.18)"}`,
+          border: `2px dashed ${isDragging ? "var(--red)" : "rgba(255, 255, 255, 0.18)"}`,
           background: isDragging
-            ? "rgba(230,20,56,0.06)"
-            : "#FFFFFF",
+            ? "rgba(230,20,56,0.12)"
+            : "#12141C",
           borderRadius: "8px",
           padding: audioMeta ? "1.5rem" : "2.5rem 1.5rem",
           textAlign: "center",
           transition: "all 0.25s ease",
           cursor: "pointer",
           position: "relative",
-          boxShadow: isDragging ? "0 0 30px rgba(230,20,56,0.25)" : "0 4px 18px rgba(0,0,0,0.04)",
+          boxShadow: isDragging ? "0 0 30px rgba(230,20,56,0.35)" : "0 4px 20px rgba(0,0,0,0.5)",
         }}
         onClick={() => {
           if (!audioMeta) document.getElementById("file-upload")?.click();
@@ -405,8 +405,8 @@ export default function DragDropZone() {
             {/* Waveform Canvas */}
             <div
               style={{
-                background: "#F4F4F6",
-                border: "1px solid rgba(0,0,0,0.08)",
+                background: "#07080A",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
                 borderRadius: "6px",
                 padding: "8px",
                 position: "relative",
@@ -441,7 +441,7 @@ export default function DragDropZone() {
                   type="button"
                   onClick={togglePlayAudio}
                   style={{
-                    background: isPlaying ? "var(--red)" : "#0F1115",
+                    background: isPlaying ? "var(--red)" : "rgba(255, 255, 255, 0.12)",
                     color: "#FFFFFF",
                     border: "none",
                     borderRadius: "4px",

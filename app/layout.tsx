@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 };
 
 import CustomCursor from "@/components/ui/CustomCursor";
+import CardSheenProvider from "@/components/ui/CardSheenProvider";
 
 export default function RootLayout({
   children,
@@ -27,6 +28,7 @@ export default function RootLayout({
     <html lang="en" className="grain">
       <body>
         <CustomCursor />
+        <CardSheenProvider />
         <LenisProvider>
           <Navbar />
           <main>{children}</main>

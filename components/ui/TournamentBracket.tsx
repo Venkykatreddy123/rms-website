@@ -199,10 +199,10 @@ export default function TournamentBracket() {
     <div
       style={{
         padding: "2.5rem 1.5rem",
-        background: "#FFFFFF",
+        background: "#12141C",
         border: "1px solid var(--border)",
         borderRadius: "14px",
-        boxShadow: "0 15px 40px rgba(0,0,0,0.06)",
+        boxShadow: "0 15px 40px rgba(0,0,0,0.5)",
       }}
     >
       {/* ─── Header Plate ─── */}
@@ -247,7 +247,7 @@ export default function TournamentBracket() {
                 letterSpacing: "0.08em",
                 marginBottom: "1.2rem",
                 textAlign: "center",
-                borderBottom: "1px solid rgba(0,0,0,0.08)",
+                borderBottom: "1px solid rgba(255,255,255,0.1)",
                 paddingBottom: "0.5rem",
               }}
             >
@@ -272,11 +272,11 @@ export default function TournamentBracket() {
                   <div
                     key={match.id}
                     style={{
-                      background: isLive ? "#FFF5F6" : "#FFFFFF",
-                      border: isLive ? "1px solid rgba(230,20,56,0.4)" : "1px solid rgba(0,0,0,0.08)",
+                      background: isLive ? "rgba(230, 20, 56, 0.14)" : "rgba(255, 255, 255, 0.04)",
+                      border: isLive ? "1px solid rgba(230,20,56,0.5)" : "1px solid rgba(255, 255, 255, 0.1)",
                       borderRadius: "8px",
                       padding: "0.85rem",
-                      boxShadow: isLive ? "0 4px 15px rgba(230,20,56,0.15)" : "0 2px 8px rgba(0,0,0,0.03)",
+                      boxShadow: isLive ? "0 4px 15px rgba(230,20,56,0.25)" : "0 2px 8px rgba(0,0,0,0.4)",
                       position: "relative",
                     }}
                   >
@@ -312,8 +312,8 @@ export default function TournamentBracket() {
                         alignItems: "center",
                         padding: "0.45rem 0.6rem",
                         borderRadius: "4px",
-                        background: match.winner === 1 ? "rgba(184,134,11,0.12)" : "#F8F9FA",
-                        border: match.winner === 1 ? "1px solid rgba(184,134,11,0.35)" : "1px solid rgba(0,0,0,0.06)",
+                        background: match.winner === 1 ? "rgba(184,134,11,0.18)" : "rgba(255, 255, 255, 0.05)",
+                        border: match.winner === 1 ? "1px solid rgba(184,134,11,0.4)" : "1px solid rgba(255, 255, 255, 0.08)",
                         marginBottom: "0.4rem",
                       }}
                     >
@@ -322,9 +322,9 @@ export default function TournamentBracket() {
                           <button
                             onClick={() => playBandRiff(match.band1)}
                             style={{
-                              background: activeRiffBand === match.band1 ? "var(--red)" : "rgba(0,0,0,0.06)",
+                              background: activeRiffBand === match.band1 ? "var(--red)" : "rgba(255, 255, 255, 0.1)",
                               border: "none",
-                              color: activeRiffBand === match.band1 ? "#FFFFFF" : "#0F1115",
+                              color: "#FFFFFF",
                               width: "22px",
                               height: "22px",
                               borderRadius: "50%",
@@ -385,8 +385,8 @@ export default function TournamentBracket() {
                         alignItems: "center",
                         padding: "0.45rem 0.6rem",
                         borderRadius: "4px",
-                        background: match.winner === 2 ? "rgba(184,134,11,0.12)" : "#F8F9FA",
-                        border: match.winner === 2 ? "1px solid rgba(184,134,11,0.35)" : "1px solid rgba(0,0,0,0.06)",
+                        background: match.winner === 2 ? "rgba(184,134,11,0.18)" : "rgba(255, 255, 255, 0.05)",
+                        border: match.winner === 2 ? "1px solid rgba(184,134,11,0.4)" : "1px solid rgba(255, 255, 255, 0.08)",
                       }}
                     >
                       <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
@@ -394,9 +394,9 @@ export default function TournamentBracket() {
                           <button
                             onClick={() => playBandRiff(match.band2)}
                             style={{
-                              background: activeRiffBand === match.band2 ? "var(--red)" : "rgba(0,0,0,0.06)",
+                              background: activeRiffBand === match.band2 ? "var(--red)" : "rgba(255, 255, 255, 0.1)",
                               border: "none",
-                              color: activeRiffBand === match.band2 ? "#FFFFFF" : "#0F1115",
+                              color: "#FFFFFF",
                               width: "22px",
                               height: "22px",
                               borderRadius: "50%",
@@ -462,10 +462,10 @@ export default function TournamentBracket() {
           style={{
             marginTop: "1.5rem",
             padding: "1.2rem",
-            background: "#F8F9FA",
-            border: "1px solid rgba(184,134,11,0.3)",
+            background: "#161922",
+            border: "1px solid rgba(184,134,11,0.35)",
             borderRadius: "8px",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.6)",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-start",
@@ -485,7 +485,7 @@ export default function TournamentBracket() {
             <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--muted)", margin: "0.3rem 0" }}>
               📍 {selectedBand.origin} • Lineup: {selectedBand.members}
             </p>
-            <p style={{ fontSize: "0.82rem", color: "var(--bone)", margin: "0.4rem 0 0", maxWidth: "600px", lineHeight: 1.4 }}>
+            <p style={{ fontSize: "0.82rem", color: "#CBD5E1", margin: "0.4rem 0 0", maxWidth: "600px", lineHeight: 1.4 }}>
               {selectedBand.bio}
             </p>
           </div>
@@ -511,7 +511,7 @@ export default function TournamentBracket() {
               onClick={() => setSelectedBand(null)}
               style={{
                 background: "transparent",
-                border: "1px solid rgba(0,0,0,0.15)",
+                border: "1px solid rgba(255,255,255,0.2)",
                 color: "var(--muted)",
                 padding: "6px 10px",
                 borderRadius: "4px",

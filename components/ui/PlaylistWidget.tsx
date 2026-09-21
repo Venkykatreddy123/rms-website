@@ -62,12 +62,12 @@ export default function PlaylistWidget() {
         className="playlist-widget-panel"
         style={{
           width: "320px",
-          background: "rgba(255, 255, 255, 0.95)",
+          background: "rgba(18, 20, 28, 0.96)",
           backdropFilter: "blur(20px)",
-          border: "1px solid rgba(0, 0, 0, 0.12)",
+          border: "1px solid rgba(255, 255, 255, 0.15)",
           borderRadius: "8px",
           padding: "1.25rem",
-          boxShadow: "0 20px 40px rgba(0, 0, 0, 0.12)",
+          boxShadow: "0 20px 50px rgba(0, 0, 0, 0.7)",
           transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
           transform: isOpen ? "translateY(0) scale(1)" : "translateY(20px) scale(0.9)",
           opacity: isOpen ? 1 : 0,
@@ -119,7 +119,7 @@ export default function PlaylistWidget() {
         </div>
 
         {/* Progress Bar */}
-        <div style={{ width: "100%", height: "4px", background: "rgba(0,0,0,0.08)", borderRadius: "2px", overflow: "hidden", marginBottom: "1rem" }}>
+        <div style={{ width: "100%", height: "4px", background: "rgba(255,255,255,0.1)", borderRadius: "2px", overflow: "hidden", marginBottom: "1rem" }}>
           <div style={{ width: `${progress}%`, height: "100%", background: "var(--red)", transition: "width 0.5s linear" }} />
         </div>
 
@@ -162,13 +162,13 @@ export default function PlaylistWidget() {
           width: "56px",
           height: "56px",
           borderRadius: "50%",
-          background: "#FFFFFF",
-          border: "1px solid rgba(0, 0, 0, 0.12)",
+          background: "#12141C",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           cursor: "pointer",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.12)",
+          boxShadow: "0 10px 25px rgba(0,0,0,0.6)",
           color: "var(--bone)",
           position: "relative",
           zIndex: 51,

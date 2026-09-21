@@ -135,10 +135,10 @@ export default function PartnersPage() {
           <h1
             className="display-hero"
             style={{
-              fontSize: "clamp(3rem, 10vw, 8rem)",
+              fontSize: "clamp(2.2rem, 5.2vw, 4.2rem)",
               color: "var(--bone)",
-              animation: "slide-up 1s ease 0.3s forwards",
-              opacity: 0,
+              lineHeight: 0.96,
+              marginBottom: "1.25rem",
             }}
           >
             Build Something<br />
@@ -148,22 +148,16 @@ export default function PartnersPage() {
             className="body-copy"
             style={{
               maxWidth: "560px",
-              margin: "2rem auto",
+              margin: "1.25rem auto 2rem",
               fontSize: "1.05rem",
-              animation: "slide-up 1s ease 0.6s forwards",
-              opacity: 0,
+              color: "#CBD5E1",
             }}
           >
             RITHMOS partners aren&apos;t sponsors who get a logo on a banner.
             They&apos;re brands that become part of the story — woven into the
             experience, the content, and the memory of the night.
           </p>
-          <div
-            style={{
-              animation: "slide-up 1s ease 0.9s forwards",
-              opacity: 0,
-            }}
-          >
+          <div>
             <Link href="/contact" className="btn-primary" style={{ background: "var(--gold)" }}>
               Partner With RITHMOS →
             </Link>
@@ -231,7 +225,7 @@ export default function PartnersPage() {
         className="tiers-section"
         style={{
           padding: "8rem 2.5rem",
-          background: "#F8F9FA",
+          background: "var(--bg)",
         }}
       >
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
@@ -255,10 +249,10 @@ export default function PartnersPage() {
                   gridTemplateColumns: "280px 1fr auto",
                   gap: "3rem",
                   padding: "2.5rem",
-                  background: "#FFFFFF",
+                  background: "#12141C",
                   border: `1px solid ${tier.borderColor}`,
                   borderRadius: "10px",
-                  boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
                   alignItems: "start",
                 }}
               >
@@ -308,7 +302,7 @@ export default function PartnersPage() {
                         key={p}
                         style={{
                           padding: "0.6rem 1.2rem",
-                          background: "#F8F9FA",
+                          background: "rgba(255, 255, 255, 0.06)",
                           border: `1px solid var(--border)`,
                           borderRadius: "4px",
                           fontFamily: "var(--font-display)",
@@ -316,7 +310,7 @@ export default function PartnersPage() {
                           fontSize: "0.75rem",
                           letterSpacing: "0.1em",
                           textTransform: "uppercase",
-                          color: "var(--muted)",
+                          color: "#CBD5E1",
                           opacity: p.startsWith("Your") || p.startsWith("Stage") || p.startsWith("Partner")
                             ? 0.4
                             : 1,
