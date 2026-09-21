@@ -198,7 +198,7 @@ export default function HomePage() {
             ref={headlineRef}
             className="display-hero"
             style={{
-              fontSize: "clamp(4rem, 9.5vw, 9rem)",
+              fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
               letterSpacing: "0.02em",
               lineHeight: 0.9,
               margin: 0,
